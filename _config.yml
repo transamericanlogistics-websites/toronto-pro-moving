@@ -17,6 +17,12 @@ theme:
 
   colors:
     # Backgrounds
+
+    #nav
+    nav_bg: "#005bbd"
+    nav_links: "#ffffff"
+
+
     bg_main:      "#ffffff"      # Soft blue-tinted white
     bg_secondary: "#e6f0fa"      # Very light cool blue
     bg_accent:    "#dce9f8"      # Light blue
@@ -46,8 +52,6 @@ theme:
     delete:       "#ff4d4f"
 
     on_primary:   "#ffffff"
-    shadow_sm:    "rgba(0, 0, 0, 0.05)"
-    shadow_md:    "rgba(0, 0, 0, 0.10)"
 
 # Hero section
 hero:
