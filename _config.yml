@@ -58,7 +58,7 @@ theme:
 hero:
   description: >
     Reliable. Efficient. Professional. Toronto Pro Moving is your local expert in residential, commercial, and specialty moving services.
-  image: "/assets/hero-toronto.jpg"
+  image: "/assets/images/hero-toronto.jpg"
 
 # About / Features section
 about:
