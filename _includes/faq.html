@@ -1,0 +1,102 @@
+<!-- _includes/faq.html -->
+<style>
+  /* ─── Section Wrapper ─── */
+  #faq {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+  #faq .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  #faq h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary);
+  }
+
+  /* ─── Accordion Item ─── */
+  .faq-accordion .faq-item {
+    position: relative;
+    margin-bottom: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius-1);
+    overflow: hidden;
+  }
+
+  /* ─── Hide native marker ─── */
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::marker            { content: none; }
+
+  /* ─── Question Bar ─── */
+  .faq-item summary {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 1rem 2.5rem 1rem 1rem;
+    background: var(--bg-main);
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  /* ─── Round corners appropriately ─── */
+  .faq-item:not([open]) summary {
+    border-top-left-radius:    var(--border-radius-1);
+    border-top-right-radius:   var(--border-radius-1);
+    border-bottom-left-radius: var(--border-radius-1);
+    border-bottom-right-radius:var(--border-radius-1);
+  }
+  .faq-item[open] summary {
+    border-top-left-radius:    var(--border-radius-1);
+    border-top-right-radius:   var(--border-radius-1);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius:0;
+  }
+
+  /* ─── Chevron (Font Awesome) ─── */
+  .faq-item summary::after {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f078"; /* down */
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.2s ease;
+    font-size: 0.9em;
+  }
+  .faq-item[open] summary::after {
+    content: "\f077"; /* up */
+  }
+
+  /* ─── Answer Panel ─── */
+  .faq-item .faq-answer {
+    display: none;
+    padding: 1rem;
+    background: var(--secondary-bg);
+    border-bottom-left-radius:  var(--border-radius-1);
+    border-bottom-right-radius: var(--border-radius-1);
+  }
+  .faq-item[open] .faq-answer {
+    display: block;
+  }
+</style>
+
+<section id="faq">
+  <div class="container">
+    <h2>{{ site.faq_title | default: "FAQs" }}</h2>
+    <div class="faq-accordion">
+      {% for item in site.faq %}
+        <details class="faq-item">
+          <summary class="faq-question">{{ item.question }}</summary>
+          <div class="faq-answer">
+            {{ item.answer }}
+          </div>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>

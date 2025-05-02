@@ -1,0 +1,123 @@
+<style>
+  /* Testimonials Section */
+  #testimonials {
+    background: var(--bg-light);
+    padding: 4rem 0;
+  }
+  #testimonials .container {
+    text-align: center;
+  }
+  #testimonials h2 {
+    color: var(--text-dark-bg);
+    margin-bottom: 1rem;
+  }
+  #testimonials .stars {
+    color: var(--accent);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-card {
+    position: relative;
+    max-width: 600px;
+    margin: 1rem auto;
+    padding: 2rem;
+    background: var(--surface);
+    border-radius: var(--border-radius-1);
+    box-shadow: 0 3px 10px var(--shadow-sm);
+    color: var(--text);
+  }
+
+  .nav-arrows {
+    position: absolute;
+    top: 50%;
+    left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+  }
+  .nav-arrows .arrow {
+    background: transparent;
+    border: none;
+    padding: 0.25rem;
+    font-size: 1.5rem;
+    color: var(--accent);
+    cursor: pointer;
+    line-height: 1;
+  }
+  #testimonial-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  #testimonial-author {
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 0.25rem;
+  }
+  .location {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .location i {
+    margin-right: 0.25rem;
+    color: var(--accent);
+  }
+</style>
+
+<section id="testimonials">
+  <div class="container">
+    <h2>Our Testimonials</h2>
+    <div id="stars" class="stars"></div>
+    <div class="testimonial-card">
+      <div class="nav-arrows">
+        <button class="arrow prev" aria-label="Previous testimonial">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="arrow next" aria-label="Next testimonial">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <p id="testimonial-text"></p>
+      <div id="testimonial-author"></div>
+      <div class="location">
+        <i class="fas fa-map-marker-alt"></i>
+        <span id="testimonial-location-text"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const testimonials = {{ site.testimonials | jsonify }};
+    let current = 0;
+    const textEl = document.getElementById('testimonial-text');
+    const authorEl = document.getElementById('testimonial-author');
+    const locationEl = document.getElementById('testimonial-location-text');
+    const starsEl = document.getElementById('stars');
+
+    function showTestimonial(idx) {
+      const t = testimonials[idx];
+      textEl.textContent = t.text;
+      authorEl.textContent = t.author;
+      locationEl.textContent = t.location;
+      const filled = '★'.repeat(Math.round(t.rating));
+      const empty = '☆'.repeat(5 - Math.round(t.rating));
+      starsEl.textContent = `${filled}${empty} ${t.rating.toFixed(1)}/5.0`;
+    }
+
+    document.querySelector('.prev').addEventListener('click', () => {
+      current = (current - 1 + testimonials.length) % testimonials.length;
+      showTestimonial(current);
+    });
+    document.querySelector('.next').addEventListener('click', () => {
+      current = (current + 1) % testimonials.length;
+      showTestimonial(current);
+    });
+
+    showTestimonial(current);
+  });
+</script>

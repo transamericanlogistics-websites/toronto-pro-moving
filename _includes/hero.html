@@ -1,0 +1,123 @@
+<style>
+  /* Hero section */
+  .hero {
+    background: var(--bg-secondary);
+    text-align: center;
+    padding: 4rem 0;
+    position: relative;
+  }
+  
+  .hero h1 {
+    color: var(--primary);
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1.125rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
+  
+  .hero .btn-accent {
+    display: inline-block;
+    margin: 1rem auto;
+  }
+  
+  /* New container for positioning context */
+  .hero-img-container {
+    position: relative;
+    margin-top: 2rem;
+    width: 100%;
+  }
+  
+  .hero-img {
+    width: 100%;
+    height: 625px;
+    border-radius: var(--border-radius-1);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    overflow: hidden;
+  }
+  
+  .hero .hero-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;         /* fill & crop to container */
+    border-radius: inherit;    /* match container rounding */
+    display: block;            /* remove inline img whitespace */
+  }
+  
+  /* SVG positioning - now relative to hero-img-container */
+  .hero-svg-wrapper {
+    position: absolute;
+    top: -17.5%;                  /* Position from top of container */
+    right: 1%;                /* Position from right of container */
+    width: 25%;               /* Responsive width based on container */
+    max-width: 250px;         /* Maximum width */
+    min-width: 140px;         /* Minimum width for very small screens */
+    z-index: 2;               /* Ensure it's above the image */
+    pointer-events: none;     /* If it's decorative */
+  }
+  
+  .hero-svg-wrapper svg {
+    width: 100%;
+    height: auto;
+  }
+
+
+  /* Basic responsive adjustments */
+  @media (max-width: 980px) {
+    .hero-svg-wrapper {
+      top: -10%;             /* Adjust position for smaller screens */
+      right: 2%;
+    }
+  }
+  
+  /* Basic responsive adjustments */
+  @media (max-width: 768px) {
+    .hero .hero-img {
+      height: 50vh;
+      max-height: 500px;
+    }
+    
+    .hero-svg-wrapper {
+      top: -6%;             /* Adjust position for smaller screens */
+      right: 2%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero .hero-img {
+      max-height: 325px;
+    }
+    
+    .hero-svg-wrapper {
+      top: -15%;              /* Further adjust for very small screens */
+      right: 3%;
+    }
+  }
+</style>
+
+<!-- Hero section HTML -->
+<section class="hero" id="home">
+  <div class="container">
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.hero.description }}</p>
+    <a href="#quote" class="btn btn-accent">Get My Quote</a>
+    
+    <div class="hero-img-container">
+      <!-- SVG positioned within the container -->
+      <div class="hero-svg-wrapper">
+        {% include_relative assets/hero-svg.svg %}
+      </div>
+      
+      <div class="hero-img">
+        <img src="assets/hero.webp" alt="Hero image">
+      </div>
+    </div>
+  </div>
+</section>

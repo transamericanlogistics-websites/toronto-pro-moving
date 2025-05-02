@@ -1,0 +1,63 @@
+---
+---
+/*** shake animation class (every 5 seconds) ***/
+.shake-5s {
+  animation: shake-keyframes 6s linear infinite!important;
+  transform-origin: 50% 50%!important;
+}
+@keyframes shake-keyframes {
+  0% {
+    transform: rotate(0deg);
+  }
+  1.042% {
+    transform: rotate(3deg);
+  }
+  2.083% {
+    transform: rotate(0eg);
+  }
+  3.125% {
+    transform: rotate(-3deg);
+  }
+  4.167% {
+    transform: rotate(0deg);
+  }
+  5.208% {
+    transform: rotate(3deg);
+  }
+  6.25% {
+    transform: rotate(0deg);
+  }
+  7.292% {
+    transform: rotate(-3eg);
+  }
+  8.333% {
+    transform: rotate(0deg);
+  }
+  9.375% {
+    transform: rotate(3deg);
+  }
+  10.417% {
+    transform: rotate(0eg);
+  }
+  11.458% {
+    transform: rotate(-3deg);
+  }
+  12.5% {
+    transform: rotate(0deg);
+  }
+  13.542% {
+    transform: rotate(3deg);
+  }
+  14.583% {
+    transform: rotate(0deg);
+  }
+  15.625% {
+    transform: rotate(-3eg);
+  }
+  16.667% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

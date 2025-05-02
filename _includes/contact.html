@@ -1,0 +1,79 @@
+<!-- _includes/contact.html -->
+
+<style>
+  /* Contact Section */
+  #contact {
+    background-color: var(--bg-main);
+    padding: 4rem 0;
+  }
+  #contact h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary);
+  }
+
+  #contact .info {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;            /* vertically center all items */
+  }
+  #contact .item {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    display: flex;                  /* make each block a flex column */
+    flex-direction: column;
+    justify-content: center;        /* center contents vertically */
+    align-items: center;            /* center contents horizontally */
+  }
+  #contact .item i {
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  /* Ensure all text links in contact use the same text color */
+  #contact .item a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  #contact .item a:hover {
+    color: var(--primary);
+  }
+</style>
+
+<section id="contact">
+  <div class="container">
+    <h2>Get In Touch!</h2>
+    <div class="info">
+      <div class="item">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Address</h3>
+        <p>
+          {% for line in site.address %}
+            {{ line }}<br>
+          {% endfor %}
+        </p>
+      </div>
+      <div class="item">
+        <i class="fas fa-phone"></i>
+        <h3>Phone</h3>
+        <p>
+          <a href="tel:{{ site.phone.ie64 }}">
+            {{ site.phone.display }}
+          </a>
+        </p>
+      </div>
+      <div class="item">
+        <i class="fas fa-clock"></i>
+        <h3>Hours</h3>
+        <p>
+          {% for times in site.hours %}
+            {{ times }}<br>
+          {% endfor %}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

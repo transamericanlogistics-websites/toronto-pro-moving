@@ -1,0 +1,31 @@
+<style>
+  /* About Section */
+  #about {
+    background: var(--primary);
+    color: var(--on-primary);
+  }
+  #about h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  #about .feature {
+    margin-bottom: 1.5rem;
+  }
+  #about .feature h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+</style>
+
+<section id="about">
+  <div class="container">
+    <h2>{{ site.about.title }}</h2>
+    {% for feature in site.about.features %}
+      <div class="feature">
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.text }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>

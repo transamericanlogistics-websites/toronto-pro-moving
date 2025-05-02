@@ -1,0 +1,156 @@
+# _config.yml
+
+# Site settings
+title: "Insert Site Title Here"
+description: "Insert site description here."
+url: "https://your-production-url.com"
+baseurl: ""  # e.g. "/blog" if hosted on a subpath
+
+# Theming
+theme:
+  font:
+    family: "YourFontFamily"
+    weights: ["400","600","700"]
+
+  border_radius_1: "0.5rem"
+  border_radius_2: "50px"
+
+  colors:
+    # backgrounds (placeholder grey shades)
+    bg_main:      "#dddddd"
+    bg_secondary: "#cccccc"
+    bg_accent:    "#bbbbbb"
+    bg_light:     "#eeeeee"
+    surface:      "#ffffff"
+
+    # Primary / Accent (placeholder greys)
+    primary:       "#aaaaaa"
+    primary_light: "#bbbbbb"
+    primary_dark:  "#999999"
+
+    # Secondary (placeholder greys)
+    secondary:       "#888888"
+    secondary_light: "#777777"
+    secondary_dark:  "#666666"
+
+    # Text
+    text:         "#000000"
+    text_light:   "#333333"
+    text_dark_bg: "#ffffff"
+
+    # Accents & states
+    accent:       "#aaaaaa"
+    accent_dark:  "#888888"
+    border:       "#aaaaaa"
+    error:        "#ff4d4d"
+    delete:       "#ff4d4d"
+
+    on_primary:  "#ffffff"
+    shadow_sm:   "rgba(0,0,0,0.05)"
+    shadow_md:   "rgba(0,0,0,0.10)"
+
+# Hero section
+hero:
+  description: >
+    Insert hero description here.
+  image: "/assets/hero.webp"
+
+# About / Features section
+about:
+  title: "Insert Section Title Here"
+  features:
+    - title: "Feature Title Here"
+      text: "Insert feature description here."
+    - title: "Feature Title Here"
+      text: "Insert feature description here."
+
+# Call-to-Action blocks
+cta-1:
+  title: "Insert CTA Title Here"
+  text: "Insert CTA text here."
+  button: "Button Text Here"
+
+cta-2:
+  title: "Insert CTA Title Here"
+  button: "Button Text Here"
+
+# Quote form
+quote:
+  submission_url: "https://shadow-seagull-4892.twil.io/submit_quote_request"
+  job_types:
+    - label: "Residential Moving"
+      options:
+        - "Studio Home"
+        - "1 Bedroom Home"
+        - "2 Bedroom Home"
+        - "3+ Bedroom Home"
+    - label: "Specialty Services"
+      options:
+        - "Piano Moving"
+        - "Junk Removal"
+        - "Furniture Packing/Unpacking"
+        - "Full-Service Packing"
+        - "Partial Packing"
+    - label: "Commercial"
+      options:
+        - "Commercial Moving"
+        - "Office Relocation"
+    - label: "Other"
+      options:
+        - "Other (Not listed)"
+
+# Contact info
+phone:
+  ie64: "+11234567890"
+  display: "(123) 456-7890"
+  twilio_account_sid: "ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+email: "info@yourdomain.com"
+
+address:
+  - "123 Placeholder St"
+  - "Your City, ST ZIP"
+
+hours:
+  - "Mon–Fri: 7 AM – 9 PM"
+  - "Sat–Sun: 9 AM – 9 PM"
+
+# Navigation links
+nav_links:
+  - title: "Services"
+    url: "#faq"
+  - title: "Locations"
+    url: "#locations"
+  - title: "Moving Tips"
+    url: "#faq"
+  - title: "About Us"
+    url: "#about"
+
+# Locations map & data
+locations:
+  #map_theme_url: "OSM Theme URL Here"
+  #map_marker_icon: "fa-solid fa-map-marker-alt"
+  #map_marker_color: "#cccccc"
+  location_data:
+    - name: "Location Name"
+      coordinates: "0.0000, 0.0000"
+    - name: "Location Name"
+      coordinates: "0.0000, 0.0000"
+
+# FAQ & Moving Tips
+faq_title: "Insert FAQ Section Title Here"
+faq:
+  - question: "Insert question here?"
+    answer: "Insert answer here."
+  - question: "Insert question here?"
+    answer: "Insert answer here."
+
+# Testimonials
+testimonials:
+  - text: "Insert testimonial text here."
+    author: "— Author Name"
+    location: "Location"
+    rating: 5
+  - text: "Insert testimonial text here."
+    author: "— Author Name"
+    location: "Location"
+    rating: 4.5

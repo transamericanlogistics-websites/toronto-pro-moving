@@ -1,0 +1,128 @@
+<!-- _includes/footer.html -->
+
+<style>
+  /* Footer */
+  footer {
+    background: var(--primary);
+    color: var(--on-primary);
+  }
+  footer .footer-cols {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 0;
+    align-items: stretch;
+  }
+  footer .col {
+    flex: 1;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  footer h4 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  /* Wrap the content under the title so we can center it vertically */
+  .footer-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  footer ul li {
+    margin-bottom: 0.5rem;
+  }
+  footer ul li a {
+    color: var(--on-primary);
+    text-decoration: none;
+  }
+
+  /* Contact column */
+  footer .col.contact i {
+    margin-right: 0.5rem;
+  }
+  footer .col.contact a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: var(--font-weight-normal);
+  }
+  footer .col.contact a:hover {
+    text-decoration: underline;
+  }
+
+  /* MOBILE: hide contact icons */
+  @media (max-width: 600px) {
+    footer .col.contact i {
+      display: none;
+    }
+  }
+</style>
+
+<footer>
+  <div class="container footer-cols">
+
+    <!-- Address column -->
+    <div class="col">
+      <h4>Address</h4>
+      <div class="footer-content">
+        <ul>
+          {% for line in site.address %}
+            <li><a href="#locations">{{ line }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Locations column -->
+    <div class="col">
+      <h4>Locations</h4>
+      <div class="footer-content">
+        <ul>
+          {% for location in site.locations.location_data %}
+            <li><a href="#locations">{{ location.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Hours column -->
+    <div class="col">
+      <h4>Hours</h4>
+      <div class="footer-content">
+        <ul>
+          {% for day in site.hours %}
+            <li>{{ day }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Contact column -->
+    <div class="col contact">
+      <h4>Contact</h4>
+      <div class="footer-content">
+        <p>
+          <i class="fas fa-phone"></i>
+          <a href="tel:{{ site.phone.ie64 }}">{{ site.phone.display }}</a>
+        </p>
+        <p>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</footer>

@@ -1,0 +1,106 @@
+<!-- _includes/cta-1.html -->
+
+<style>
+  #cta-1 {
+    background-color: var(--bg-secondary);
+  }
+  
+  /* CTA-1 Section */
+  #cta-1 .card {
+    display: flex;
+    flex-wrap: nowrap;      /* two columns side by side on desktop */
+    align-items: stretch;   /* equal height columns */
+  }
+  
+  /* force exactly 50/50 split */
+  #cta-1 .cta-1-text,
+  #cta-1 .cta-1-img {
+    flex: 0 0 50%;
+    min-width: 0;           /* prevent overflow */
+  }
+  
+  /* Left column: grid for top/middle/bottom layout */
+  #cta-1 .cta-1-text {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 1rem;
+    border-radius: var(--border-radius-1) 0 0 var(--border-radius-1);
+    background: var(--bg-main);
+    color: var(--text-dark-bg);
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  /* Center the paragraph vertically */
+  #cta-1 .cta-1-text p {
+    margin: 0;
+  }
+  
+  /* Button stays natural width and bottoms out */
+  #cta-1 .cta-1-text .btn-accent {
+    display: inline-block;
+    width: auto;
+    justify-self: center;
+  }
+  
+  /* Right column: image fills its box */
+  #cta-1 .cta-1-img {
+    overflow: hidden;
+    position: relative;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 var(--border-radius-1) var(--border-radius-1) 0;
+  }
+  #cta-1 .cta-1-img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ─── MOBILE STACKING (≤768px) ─── */
+  @media (max-width: 768px) {
+    #cta-1 .card {
+      flex-direction: column;
+    }
+
+    /* Pull image above the text and give it height */
+    #cta-1 .cta-1-img {
+      order: -1;                          /* show on top */
+      height: 250px;                      /* or whatever mobile height you want */
+      border-radius: var(--border-radius-1) var(--border-radius-1) 0 0;
+    }
+
+    /* Text block below, rounded bottom corners */
+    #cta-1 .cta-1-text {
+      border-radius: 0 0 var(--border-radius-1) var(--border-radius-1);
+    }
+
+    /* Full width each */
+    #cta-1 .cta-1-text,
+    #cta-1 .cta-1-img {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+  }
+
+
+</style>
+
+<section id="cta-1">
+  <div class="container card">
+    <div class="cta-1-text">
+      <h2>{{ site.cta-1.title }}</h2>
+      <p>{{ site.cta-1.text }}</p>
+      <a href="#quote" class="btn btn-accent">{{ site.cta-1.button }}</a>
+    </div>
+    <div class="cta-1-img">
+      <img
+        src="assets/cta.webp"
+        alt="Call to action image"
+      >
+    </div>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+<!-- _includes/cta-2.html -->
+
+<style>
+  #cta-2 {
+    background-color: var(--bg-main);
+  }
+
+  /* cta-2 (CTA-2) */
+  #cta-2 {
+    text-align: center;
+    padding: 4rem 0;
+  }
+
+  .placeholder-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--on-primary);
+    font-size: 2rem;
+  }
+
+  /* Override full-width */
+  #cta-2 .btn-accent {
+    display: inline-block !important;
+    width: auto !important;
+    margin: 1rem auto 0 !important;
+  }
+</style>
+
+<section id="cta-2">
+  <div class="container">
+    <div class="placeholder-circle">
+      <i class="fas fa-box-open"></i>
+    </div>
+    <h2 style="margin-bottom:1rem;">{{ site.cta-2.title }}</h2>
+    <a href="#quote" class="btn btn-accent">{{ site.cta-2.button }}</a>
+  </div>
+</section>
