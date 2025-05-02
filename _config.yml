@@ -12,12 +12,12 @@ theme:
     family: "Inter, sans-serif"
     weights: ["400", "600", "700"]
 
-  border_radius_1: "0.5rem"
-  border_radius_2: "50px"
+  border_radius_1: "5px"
+  border_radius_2: "5px"
 
   colors:
     # Backgrounds
-    bg_main:      "#f5faff"      # Soft blue-tinted white
+    bg_main:      "#ffffff"      # Soft blue-tinted white
     bg_secondary: "#e6f0fa"      # Very light cool blue
     bg_accent:    "#dce9f8"      # Light blue
     bg_light:     "#ffffff"
