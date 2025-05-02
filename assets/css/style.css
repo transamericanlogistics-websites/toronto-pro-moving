@@ -1,0 +1,256 @@
+---
+---
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 980px)
+{
+    body, html{
+        width: 100vw;
+        overflow-x: hidden;
+    }
+}
+
+:root {
+  /* Typography */
+  --font-family:       '{{ site.theme.font.family }}', sans-serif;
+  --font-weight-normal:   {{ site.theme.font.weights[0] }};
+  --font-weight-semibold: {{ site.theme.font.weights[1] }};
+  --font-weight-bold:     {{ site.theme.font.weights[2] }};
+
+  /* Shapes */
+  --border-radius-1:     {{ site.theme.border_radius_1 }};
+  --border-radius-2:     {{ site.theme.border_radius_2 }};
+
+  /* Backgrounds */
+  --bg-main:             {{ site.theme.colors.bg_main }};
+  --bg-secondary:        {{ site.theme.colors.bg_secondary }};
+  --bg-accent:           {{ site.theme.colors.bg_accent }};
+  --bg-light:            {{ site.theme.colors.bg_light }};
+  --surface:             {{ site.theme.colors.surface }};
+
+  /* Primary palette */
+  --primary:           {{ site.theme.colors.primary }};
+  --primary-light:     {{ site.theme.colors.primary_light }};
+  --primary-dark:      {{ site.theme.colors.primary_dark }};
+
+  /* Secondary palette */
+  --secondary:         {{ site.theme.colors.secondary }};
+  --secondary-light:   {{ site.theme.colors.secondary_light }};
+  --secondary-dark:    {{ site.theme.colors.secondary_dark }};
+
+  /* Text */
+  --text:              {{ site.theme.colors.text }};
+  --text-light:        {{ site.theme.colors.text_light }};
+
+  /* Accent & states */
+  --accent:            {{ site.theme.colors.accent }};
+  --accent-dark:       {{ site.theme.colors.accent_dark }};
+  --error:             {{ site.theme.colors.error }};
+  --delete:            {{ site.theme.colors.delete }};
+  --border:            {{ site.theme.colors.border }};
+
+  /* New variables – add these to your _config.yml under theme.colors:
+     on_primary: "#ffffff"
+     shadow_md:  "rgba(0,0,0,0.1)"
+     shadow_sm:  "rgba(0,0,0,0.05)" */
+  --on-primary:        {{ site.theme.colors.on_primary }};
+  --shadow-md:         {{ site.theme.colors.shadow_md }};
+  --shadow-sm:         {{ site.theme.colors.shadow_sm }};
+}
+
+/* Global reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text);
+}
+
+section {
+  padding: 4rem 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  z-index: 2000 !important;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-2);
+  font-weight: var(--font-weight-semibold);
+}
+.btn-accent {
+  background: var(--accent);
+  color: var(--text-dark-bg);
+}
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-accent {
+  border: 2px solid var(--border)!important;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label {
+  display: block;
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 0.25rem;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: var(--border-radius-2);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  color: var(--text);
+}
+/* Inputs */
+input{
+  border: 2px solid var(--border);
+}
+select{
+  border: 2px solid var(--border);
+}
+
+/* Field wrappers & icons */
+.field-wrapper {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.field-wrapper > i {
+  position: absolute;
+  top: 50%; right: 0.75rem;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  color: var(--text-light);
+  pointer-events: none;
+}
+.field-wrapper .delete-icon {
+  position: absolute;
+  top: 50%; right: 0.5rem;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: var(--error);
+  display: none;
+  z-index: 1;
+}
+.address-group.show-delete .delete-icon {
+  display: block;
+}
+.field-wrapper .delete-icon i {
+  pointer-events: auto;
+  color: var(--delete);
+}
+
+
+
+/* Loading Spinner */
+.spinner {
+  display: inline-block;
+  width: 1em; height: 1em;
+  border: 2px solid var(--secondary-dark);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  vertical-align: middle;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+
+
+/* Buttons */
+.btn-primary {
+  display: block;
+  margin: 1rem auto;
+  background-color: var(--primary);
+  color: var(--text-dark-bg);
+  border: none;
+  border-radius: var(--border-radius-2);
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semibold);
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+.btn-secondary {
+  display: inline-block;
+  background-color: var(--secondary);
+  color: var(--bg-main);
+  border: none;
+  border-radius: var(--border-radius-2);
+  padding: 0.5rem;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.btn-secondary:hover {
+  background-color: var(--secondary-dark);
+}
+.btn-accent {
+  display: block;
+  margin: 0 auto 1.5rem;
+  background-color: var(--accent);
+  color: var(--text);
+  border: none;
+  border-radius: var(--border-radius-2);
+  padding: 0.75rem;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semibold);
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+.btn-accent:hover {
+  background-color: var(--accent-dark);
+}
+
+
+
+/* Scrollbars */
+#job-type::-webkit-scrollbar {
+  width: 0.75rem; border-radius: var(--border-radius-1);
+}
+#job-type::-webkit-scrollbar-track {
+  background: var(--bg-accent); border-radius: var(--border-radius-1);
+}
+#job-type::-webkit-scrollbar-thumb {
+  background: var(--primary-light); border-radius: var(--border-radius-1);
+}
