@@ -1,5 +1,3 @@
----
----
 /*** shake animation class (every 5 seconds) ***/
 .shake-5s {
   animation: shake-keyframes 6s linear infinite!important;

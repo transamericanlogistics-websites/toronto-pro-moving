@@ -6,13 +6,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>{{ page.title | default: site.title }}</title>
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/animation.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  {% include nav/nav.html %}
+  {% include components/nav/nav.html %}
   {{ content }}
-  {% include footer/footer.html %}
+  {% include components/footer/footer.html %}
 </body>
 </html>
