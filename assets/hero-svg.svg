@@ -1,0 +1,412 @@
+<!--?xml version="1.0" encoding="utf-8"?-->
+<style>
+.hundred-canadian-leaf {
+  fill: #e00000;
+  stroke-width: 7px;
+  stroke: #000000;
+}
+
+.hundred-canadian-numbers, .hundred-canadian-percent-zero, .hundred-canadian-percent-slash {
+  fill: #ffffff;
+  stroke-width: 3px;
+  stroke: #ffffff;
+}
+
+.hundred-canadian-percent-slash {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+@-webkit-keyframes animate-svg-stroke-1 {
+  0% {
+    stroke-dashoffset: 2565.377197265625px;
+    stroke-dasharray: 2565.377197265625px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 2565.377197265625px;
+  }
+}
+
+@keyframes animate-svg-stroke-1 {
+  0% {
+    stroke-dashoffset: 2565.377197265625px;
+    stroke-dasharray: 2565.377197265625px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 2565.377197265625px;
+  }
+}
+
+@-webkit-keyframes animate-svg-fill-1 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: #e00000;
+  }
+}
+
+@keyframes animate-svg-fill-1 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: #e00000;
+  }
+}
+
+.hundred-canadian-1 {
+
+  -webkit-animation: animate-svg-stroke-1 1s cubic-bezier(0.47, 0, 0.745, 0.715) 1.5s both,
+                       animate-svg-fill-1 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.3s both;
+          animation: animate-svg-stroke-1 1s cubic-bezier(0.47, 0, 0.745, 0.715) 1.5s both,
+               animate-svg-fill-1 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.3s both;
+}
+
+@-webkit-keyframes animate-svg-stroke-2 {
+  0% {
+    stroke-dashoffset: 657.5780029296875px;
+    stroke-dasharray: 657.5780029296875px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 657.5780029296875px;
+  }
+}
+
+@keyframes animate-svg-stroke-2 {
+  0% {
+    stroke-dashoffset: 657.5780029296875px;
+    stroke-dasharray: 657.5780029296875px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 657.5780029296875px;
+  }
+}
+
+@-webkit-keyframes animate-svg-fill-2 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: #ffffff;
+  }
+}
+
+@keyframes animate-svg-fill-2 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: #ffffff;
+  }
+}
+
+.hundred-canadian-2 {
+  -webkit-animation: animate-svg-stroke-2 1s cubic-bezier(0.47, 0, 0.745, 0.715) 1.62s both,
+                       animate-svg-fill-2 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.4s both;
+          animation: animate-svg-stroke-2 1s cubic-bezier(0.47, 0, 0.745, 0.715) 1.62s both,
+               animate-svg-fill-2 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.4s both;
+}
+
+@-webkit-keyframes animate-svg-stroke-3 {
+  0% {
+    stroke-dashoffset: 1089.1075439453125px;
+    stroke-dasharray: 1089.1075439453125px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 1089.1075439453125px;
+  }
+}
+
+@keyframes animate-svg-stroke-3 {
+  0% {
+    stroke-dashoffset: 1089.1075439453125px;
+    stroke-dasharray: 1089.1075439453125px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 1089.1075439453125px;
+  }
+}
+
+@-webkit-keyframes animate-svg-fill-3 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: #ffffff;
+  }
+}
+
+@keyframes animate-svg-fill-3 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: #ffffff;
+  }
+}
+
+.hundred-canadian-3 {
+  -webkit-animation: animate-svg-stroke-3 1s cubic-bezier(0.47, 0, 0.745, 0.715) 1.74s both,
+                       animate-svg-fill-3 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.5s both;
+          animation: animate-svg-stroke-3 1s cubic-bezier(0.47, 0, 0.745, 0.715) 1.74s both,
+               animate-svg-fill-3 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.5s both;
+}
+
+@-webkit-keyframes animate-svg-stroke-4 {
+  0% {
+    stroke-dashoffset: 1089.1077880859375px;
+    stroke-dasharray: 1089.1077880859375px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 1089.1077880859375px;
+  }
+}
+
+@keyframes animate-svg-stroke-4 {
+  0% {
+    stroke-dashoffset: 1089.1077880859375px;
+    stroke-dasharray: 1089.1077880859375px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 1089.1077880859375px;
+  }
+}
+
+@-webkit-keyframes animate-svg-fill-4 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: #ffffff;
+  }
+}
+
+@keyframes animate-svg-fill-4 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: #ffffff;
+  }
+}
+
+.hundred-canadian-4 {
+  -webkit-animation: animate-svg-stroke-4 1s cubic-bezier(0.47, 0, 0.745, 0.715) 1.8599999999999999s both,
+                       animate-svg-fill-4 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.5999999999999996s both;
+          animation: animate-svg-stroke-4 1s cubic-bezier(0.47, 0, 0.745, 0.715) 1.8599999999999999s both,
+               animate-svg-fill-4 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.5999999999999996s both;
+}
+
+@-webkit-keyframes animate-svg-stroke-5 {
+  0% {
+    stroke-dashoffset: 337.43798828125px;
+    stroke-dasharray: 337.43798828125px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 337.43798828125px;
+  }
+}
+
+@keyframes animate-svg-stroke-5 {
+  0% {
+    stroke-dashoffset: 337.43798828125px;
+    stroke-dasharray: 337.43798828125px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 337.43798828125px;
+  }
+}
+
+@-webkit-keyframes animate-svg-fill-5 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: #ffffff;
+  }
+}
+
+@keyframes animate-svg-fill-5 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: #ffffff;
+  }
+}
+
+.hundred-canadian-5 {
+  -webkit-animation: animate-svg-stroke-5 1s cubic-bezier(0.47, 0, 0.745, 0.715) 1.98s both,
+                       animate-svg-fill-5 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.6999999999999997s both;
+          animation: animate-svg-stroke-5 1s cubic-bezier(0.47, 0, 0.745, 0.715) 1.98s both,
+               animate-svg-fill-5 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.6999999999999997s both;
+}
+
+@-webkit-keyframes animate-svg-stroke-6 {
+  0% {
+    stroke-dashoffset: 388.7110900878906px;
+    stroke-dasharray: 388.7110900878906px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 388.7110900878906px;
+  }
+}
+
+@keyframes animate-svg-stroke-6 {
+  0% {
+    stroke-dashoffset: 388.7110900878906px;
+    stroke-dasharray: 388.7110900878906px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 388.7110900878906px;
+  }
+}
+
+@-webkit-keyframes animate-svg-fill-6 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: #ffffff;
+  }
+}
+
+@keyframes animate-svg-fill-6 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: #ffffff;
+  }
+}
+
+.hundred-canadian-6 {
+  -webkit-animation: animate-svg-stroke-6 1s cubic-bezier(0.47, 0, 0.745, 0.715) 2.1s both,
+                       animate-svg-fill-6 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.8s both;
+          animation: animate-svg-stroke-6 1s cubic-bezier(0.47, 0, 0.745, 0.715) 2.1s both,
+               animate-svg-fill-6 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.8s both;
+}
+
+@-webkit-keyframes animate-svg-stroke-7 {
+  0% {
+    stroke-dashoffset: 337.43829345703125px;
+    stroke-dasharray: 337.43829345703125px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 337.43829345703125px;
+  }
+}
+
+@keyframes animate-svg-stroke-7 {
+  0% {
+    stroke-dashoffset: 337.43829345703125px;
+    stroke-dasharray: 337.43829345703125px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 337.43829345703125px;
+  }
+}
+
+@-webkit-keyframes animate-svg-fill-7 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: #ffffff;
+  }
+}
+
+@keyframes animate-svg-fill-7 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: #ffffff;
+  }
+}
+
+.hundred-canadian-7 {
+  -webkit-animation: animate-svg-stroke-7 1s cubic-bezier(0.47, 0, 0.745, 0.715) 2.2199999999999998s both,
+                       animate-svg-fill-7 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.9s both;
+          animation: animate-svg-stroke-7 1s cubic-bezier(0.47, 0, 0.745, 0.715) 2.2199999999999998s both,
+               animate-svg-fill-7 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.9s both;
+}
+</style>
+<svg class="hero-svg" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" width="225" height="100%">
+  <g transform="matrix(1.128996, 0, 0, 1.128996, -153.303391, -74.717407)" style="">
+    <title>Leaf</title>
+    <path  class="hundred-canadian-1 hundred-canadian-leaf" d="M 366.639 650.317 L 366.977 680.991 L 326.865 681.665 L 236.866 694.136 L 279 650.991 L 138.441 562.004 L 190.014 552.229 L 142.149 464.927 L 225.069 481.781 L 226.754 418.411 L 317.427 490.207 L 298.214 327.064 L 354.505 348.974 L 404.055 253.92 L 454.953 348.974 L 509.221 325.379 L 494.053 488.522 L 581.355 416.389 L 584.388 483.803 L 665.286 463.579 C 665.286 463.579 621.804 547.173 621.467 547.173 C 621.13 547.173 673.038 559.644 673.038 559.644 L 654.5 577.847 C 654.5 577.847 607.23 534.47 533.522 571.506 C 468.256 604.3 473.829 686.009 473.829 686.009 L 471.806 563.315 L 326.865 563.315 L 327.202 650.617 L 366.639 650.317 Z">
+      <title>Maple Leaf</title>
+    </path>
+  </g>
+  <g transform="matrix(1.128996, 0, 0, 1.128996, -153.303391, -74.717407)">
+    <title>Numbers</title>
+    <g>
+      <title>100</title>
+      <path  class="hundred-canadian-2 hundred-canadian-numbers" d="M 354.134 584.812 L 443.863 584.812 C 445.52 584.812 446.863 586.155 446.863 587.812 L 446.863 817.089 C 446.863 818.746 445.52 820.089 443.863 820.089 L 395.257 820.089 C 393.6 820.089 392.257 818.746 392.257 817.089 L 392.257 629.306 L 354.134 629.306 C 352.477 629.306 351.134 627.963 351.134 626.306 L 351.134 587.812 C 351.134 586.155 352.477 584.812 354.134 584.812 Z">
+        <title>1</title>
+      </path>
+      <path class="hundred-canadian-3 hundred-canadian-numbers" d="M 638.657 703.687 C 638.657 745.945 618.057 780.202 592.646 780.202 C 567.235 780.202 546.635 745.945 546.635 703.687 C 546.635 661.429 567.235 627.172 592.646 627.172 C 618.057 627.172 638.657 661.429 638.657 703.687 Z M 592.343 582.351 C 537.705 582.351 493.412 636.982 493.412 704.372 C 493.412 771.762 537.705 826.393 592.343 826.393 C 646.981 826.393 691.274 771.762 691.274 704.372 C 691.274 636.982 646.981 582.351 592.343 582.351 Z">
+        <title>0</title>
+      </path>
+      <path class="hundred-canadian-4 hundred-canadian-numbers" d="M 851.136 702.665 C 851.136 744.923 830.536 779.18 805.125 779.18 C 779.714 779.18 759.114 744.923 759.114 702.665 C 759.114 660.407 779.714 626.15 805.125 626.15 C 830.536 626.15 851.136 660.407 851.136 702.665 Z M 804.822 581.329 C 750.184 581.329 705.891 635.96 705.891 703.35 C 705.891 770.74 750.184 825.371 804.822 825.371 C 859.46 825.371 903.753 770.74 903.753 703.35 C 903.753 635.96 859.46 581.329 804.822 581.329 Z">
+        <title>0</title>
+      </path>
+    </g>
+    <g>
+      <title>%</title>
+      <path  class="hundred-canadian-5 hundred-canadian-percent-zero" d="M 990.292 634.647 C 990.292 656.172 972.842 673.622 951.317 673.622 C 929.792 673.622 912.342 656.172 912.342 634.647 C 912.342 613.122 929.792 595.672 951.317 595.672 C 972.842 595.672 990.292 613.122 990.292 634.647 Z M 951.583 620.559 C 943.628 620.559 937.179 627.008 937.179 634.963 C 937.179 642.918 943.628 649.367 951.583 649.367 C 959.538 649.367 965.987 642.918 965.987 634.963 C 965.987 627.008 959.538 620.559 951.583 620.559 Z">
+        <title>0</title>
+      </path>
+      <path class="hundred-canadian-6 hundred-canadian-percent-slash" d="M 967.4 3016.387 H 984.179 A 3 3 0 0 1 987.179 3019.387 V 3186.537 A 3 3 0 0 1 984.179 3189.537 H 967.4 A 3 3 0 0 1 964.4 3186.537 V 3019.387 A 3 3 0 0 1 967.4 3016.387 Z" transform="matrix(0.841739, 0.539885, -0.539885, 0.841739, 23.501587, -2437.295737)">
+        <title>/</title>
+      </path>
+      <path  class="hundred-canadian-7 hundred-canadian-percent-zero" d="M 1085.996 695.357 C 1085.996 716.882 1068.546 734.332 1047.021 734.332 C 1025.496 734.332 1008.046 716.882 1008.046 695.357 C 1008.046 673.832 1025.496 656.382 1047.021 656.382 C 1068.546 656.382 1085.996 673.832 1085.996 695.357 Z M 1047.287 681.269 C 1039.332 681.269 1032.883 687.718 1032.883 695.673 C 1032.883 703.628 1039.332 710.077 1047.287 710.077 C 1055.242 710.077 1061.691 703.628 1061.691 695.673 C 1061.691 687.718 1055.242 681.269 1047.287 681.269 Z">
+        <title>0</title>
+      </path>
+    </g>
+  </g>
+</svg>

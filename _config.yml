@@ -1,78 +1,82 @@
 # _config.yml
 
 # Site settings
-title: "Insert Site Title Here"
-description: "Insert site description here."
-url: "https://your-production-url.com"
-baseurl: ""  # e.g. "/blog" if hosted on a subpath
+title: "Toronto Pro Moving"
+description: "Toronto's trusted movers for residential, commercial, and specialty relocations."
+url: "https://torontopromoving.com"
+baseurl: ""
 
 # Theming
 theme:
   font:
-    family: "YourFontFamily"
-    weights: ["400","600","700"]
+    family: "Inter, sans-serif"
+    weights: ["400", "600", "700"]
 
   border_radius_1: "0.5rem"
   border_radius_2: "50px"
 
   colors:
-    # backgrounds (placeholder grey shades)
-    bg_main:      "#dddddd"
-    bg_secondary: "#cccccc"
-    bg_accent:    "#bbbbbb"
-    bg_light:     "#eeeeee"
+    # Backgrounds
+    bg_main:      "#f5faff"      # Soft blue-tinted white
+    bg_secondary: "#e6f0fa"      # Very light cool blue
+    bg_accent:    "#dce9f8"      # Light blue
+    bg_light:     "#ffffff"
     surface:      "#ffffff"
 
-    # Primary / Accent (placeholder greys)
-    primary:       "#aaaaaa"
-    primary_light: "#bbbbbb"
-    primary_dark:  "#999999"
+    # Primary / Accent
+    primary:       "#005bbd"     # Deep blue
+    primary_light: "#4d8fe8"     # Lighter blue
+    primary_dark:  "#003f8a"     # Dark navy blue
 
-    # Secondary (placeholder greys)
-    secondary:       "#888888"
-    secondary_light: "#777777"
-    secondary_dark:  "#666666"
+    # Secondary
+    secondary:       "#00a6ed"   # Cyan/bright blue accent
+    secondary_light: "#66cfff"
+    secondary_dark:  "#007bb8"
 
     # Text
-    text:         "#000000"
-    text_light:   "#333333"
+    text:         "#1a1a1a"      # Near black
+    text_light:   "#4d4d4d"
     text_dark_bg: "#ffffff"
 
     # Accents & states
-    accent:       "#aaaaaa"
-    accent_dark:  "#888888"
-    border:       "#aaaaaa"
-    error:        "#ff4d4d"
-    delete:       "#ff4d4d"
+    accent:       "#007bff"
+    accent_dark:  "#0056b3"
+    border:       "#d1dce5"
+    error:        "#ff4d4f"
+    delete:       "#ff4d4f"
 
-    on_primary:  "#ffffff"
-    shadow_sm:   "rgba(0,0,0,0.05)"
-    shadow_md:   "rgba(0,0,0,0.10)"
+    on_primary:   "#ffffff"
+    shadow_sm:    "rgba(0, 0, 0, 0.05)"
+    shadow_md:    "rgba(0, 0, 0, 0.10)"
 
 # Hero section
 hero:
   description: >
-    Insert hero description here.
-  image: "/assets/hero.webp"
+    Reliable. Efficient. Professional. Toronto Pro Moving is your local expert in residential, commercial, and specialty moving services.
+  image: "/assets/hero-toronto.jpg"
 
 # About / Features section
 about:
-  title: "Insert Section Title Here"
+  title: "Why Choose Toronto Pro Moving?"
   features:
-    - title: "Feature Title Here"
-      text: "Insert feature description here."
-    - title: "Feature Title Here"
-      text: "Insert feature description here."
+    - title: "Local Expertise"
+      text: "Born and bred in Toronto — we know every corner of the city."
+    - title: "Transparent Pricing"
+      text: "No hidden fees. Ever. We offer fair, upfront pricing on every move."
+    - title: "Fast & Secure"
+      text: "We handle your belongings with care, speed, and professionalism."
+    - title: "Fully Licensed & Insured"
+      text: "We provide peace of mind by meeting the highest industry standards."
 
 # Call-to-Action blocks
 cta-1:
-  title: "Insert CTA Title Here"
-  text: "Insert CTA text here."
-  button: "Button Text Here"
+  title: "Ready to Move?"
+  text: "Get your free quote today and let Toronto Pro Moving take the stress out of your next move."
+  button: "Get a Quote"
 
 cta-2:
-  title: "Insert CTA Title Here"
-  button: "Button Text Here"
+  title: "Questions? Let's Talk."
+  button: "Contact Us"
 
 # Quote form
 quote:
@@ -80,39 +84,38 @@ quote:
   job_types:
     - label: "Residential Moving"
       options:
-        - "Studio Home"
-        - "1 Bedroom Home"
+        - "Studio Apartment"
+        - "1 Bedroom Apartment"
         - "2 Bedroom Home"
         - "3+ Bedroom Home"
     - label: "Specialty Services"
       options:
         - "Piano Moving"
-        - "Junk Removal"
-        - "Furniture Packing/Unpacking"
-        - "Full-Service Packing"
-        - "Partial Packing"
+        - "Furniture Assembly"
+        - "Packing & Unpacking"
+        - "Storage Solutions"
     - label: "Commercial"
       options:
-        - "Commercial Moving"
-        - "Office Relocation"
+        - "Office Moving"
+        - "Retail Relocation"
     - label: "Other"
       options:
-        - "Other (Not listed)"
+        - "Custom Request"
 
 # Contact info
 phone:
-  ie64: "+11234567890"
-  display: "(123) 456-7890"
+  ie64: "+14165551234"
+  display: "(416) 555-1234"
   twilio_account_sid: "ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-email: "info@yourdomain.com"
+email: "info@torontopromoving.com"
 
 address:
-  - "123 Placeholder St"
-  - "Your City, ST ZIP"
+  - "456 Spadina Ave"
+  - "Toronto, ON M5S 2G8"
 
 hours:
-  - "Mon–Fri: 7 AM – 9 PM"
-  - "Sat–Sun: 9 AM – 9 PM"
+  - "Mon–Fri: 8 AM – 8 PM"
+  - "Sat–Sun: 9 AM – 6 PM"
 
 # Navigation links
 nav_links:
@@ -127,30 +130,44 @@ nav_links:
 
 # Locations map & data
 locations:
-  #map_theme_url: "OSM Theme URL Here"
-  #map_marker_icon: "fa-solid fa-map-marker-alt"
-  #map_marker_color: "#cccccc"
+  map_theme_url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+  map_marker_icon: "fa-solid fa-map-pin"
+  map_marker_color: "#005bbd"
   location_data:
-    - name: "Location Name"
-      coordinates: "0.0000, 0.0000"
-    - name: "Location Name"
-      coordinates: "0.0000, 0.0000"
+    - name: "Downtown Toronto"
+      coordinates: "43.6532, -79.3832"
+    - name: "Etobicoke"
+      coordinates: "43.6205, -79.5132"
+    - name: "Scarborough"
+      coordinates: "43.7767, -79.2318"
+    - name: "North York"
+      coordinates: "43.7615, -79.4111"
+    - name: "Mississauga"
+      coordinates: "43.5890, -79.6441"
 
 # FAQ & Moving Tips
-faq_title: "Insert FAQ Section Title Here"
+faq_title: "Your Moving Questions Answered"
 faq:
-  - question: "Insert question here?"
-    answer: "Insert answer here."
-  - question: "Insert question here?"
-    answer: "Insert answer here."
+  - question: "Do you provide packing materials?"
+    answer: "Yes, we offer a range of packing supplies and can even pack for you!"
+  - question: "Are you insured?"
+    answer: "Absolutely. We are fully licensed and insured for all residential and commercial moves."
+  - question: "Can I book last-minute?"
+    answer: "We accommodate last-minute requests when availability allows. Contact us for details."
+  - question: "Do you move outside of Toronto?"
+    answer: "Yes, we also service the GTA including Mississauga, Vaughan, and more."
 
 # Testimonials
 testimonials:
-  - text: "Insert testimonial text here."
-    author: "— Author Name"
-    location: "Location"
+  - text: "They were punctual, professional, and very careful with my stuff. Best movers in Toronto!"
+    author: "— Alex R."
+    location: "Downtown Toronto"
     rating: 5
-  - text: "Insert testimonial text here."
-    author: "— Author Name"
-    location: "Location"
+  - text: "Moved my piano with precision and no fuss. Highly recommend."
+    author: "— Priya S."
+    location: "Scarborough"
     rating: 4.5
+  - text: "Booking was easy and the team was friendly. A smooth experience all around."
+    author: "— Marcus J."
+    location: "Etobicoke"
+    rating: 5
