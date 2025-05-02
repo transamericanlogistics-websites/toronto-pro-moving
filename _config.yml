@@ -41,7 +41,7 @@ theme:
     # Accents & states
     accent:       "#007bff"
     accent_dark:  "#0056b3"
-    border:       "#d1dce5"
+    border:       "#005bbd"
     error:        "#ff4d4f"
     delete:       "#ff4d4f"
 
