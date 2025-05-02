@@ -1,20 +1,10 @@
 ---
 ---
 
-{% include shared/css/animations/shake-5s.css %}
+{% include shared/css/fixes.css %}
+{% include shared/css/animations.css %}
 
-body, html{
-    width: 100vw;
-    overflow-x: hidden;
-} 
 
-@media screen and (max-width: 980px)
-{
-    body, html{
-        width: 100vw;
-        overflow-x: hidden;
-    }
-}
  
 :root {
 
