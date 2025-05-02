@@ -21,6 +21,7 @@ theme:
     #nav
     nav_bg: "#005bbd"
     nav_links: "#ffffff"
+    nav_links_hover: "#dce9f8"
 
 
     bg_main:      "#ffffff"      # Soft blue-tinted white
