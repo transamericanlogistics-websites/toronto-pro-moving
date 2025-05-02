@@ -104,7 +104,7 @@ nav {
 }
 .btn-accent {
   background: var(--accent);
-  color: var(--text-dark-bg);
+  color: var(--text_dark_bg)!important;
 }
 .btn,
 .btn-primary,
