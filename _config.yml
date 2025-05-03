@@ -33,8 +33,6 @@ theme:
     weights: ["400", "600", "700"]
 
   radii: ["5px", "5px"]
-    radius_1: "5px"
-    radius_2: "5px"
 
   colors:
 
