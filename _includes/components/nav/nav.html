@@ -66,7 +66,7 @@
   /* Phone link color */
   .link-text {
     color: {{ site.theme.colors.nav_links }};
-    font-weight: {{ site.theme.font.weights[1] }};
+    font-weight: {{ site.theme.default.font.weights[1] }};
   }
   .nav-container .actions .link-text,
   .nav-container .actions .btn-accent {
@@ -79,11 +79,11 @@
   .nav-menu li a:focus,
   .nav-menu li a:active {
     color: {{ site.theme.colors.nav_links }};
-    font-weight: {{ site.theme.font.weights[1] }};
+    font-weight: {{ site.theme.default.font.weights[1] }};
     text-decoration: none;
   }
   .nav-menu li a:hover {
-    color: {{ site.theme.colors.nav_links_hover }};
+    color: {{ site.theme.nav.colors.link_hover }};
   }
 
   /* Hide mobile controls by default */
@@ -183,7 +183,7 @@
     }
     .mobile-nav li a {
       color: var(--text);
-      font-weight: {{ site.theme.font.weights[1] }};
+      font-weight: {{ site.theme.default.font.weights[1] }};
       padding: 0.5rem;
     }
 

@@ -14,39 +14,39 @@
   /*--border-radius-1:     {{ site.theme.border_radius_1 }};
   --border-radius-2:     {{ site.theme.border_radius_2 }};*/
 
-  /* Backgrounds */
+  /* Backgrounds 
   --bg-main:             {{ site.theme.colors.bg_main }};
   --bg-secondary:        {{ site.theme.colors.bg_secondary }};
   --bg-accent:           {{ site.theme.colors.bg_accent }};
   --bg-light:            {{ site.theme.colors.bg_light }};
-  --surface:             {{ site.theme.colors.surface }};
+  --surface:             {{ site.theme.colors.surface }};*/
 
-  /* Primary palette */
+  /* Primary palette 
   --primary:           {{ site.theme.colors.primary }};
   --primary-light:     {{ site.theme.colors.primary_light }};
-  --primary-dark:      {{ site.theme.colors.primary_dark }};
+  --primary-dark:      {{ site.theme.colors.primary_dark }};*/
 
-  /* Secondary palette */
+  /* Secondary palette 
   --secondary:         {{ site.theme.colors.secondary }};
   --secondary-light:   {{ site.theme.colors.secondary_light }};
-  --secondary-dark:    {{ site.theme.colors.secondary_dark }};
+  --secondary-dark:    {{ site.theme.colors.secondary_dark }};*/
 
-  /* Text */
+  /* Text 
   --text:              {{ site.theme.colors.text }};
-  --text-light:        {{ site.theme.colors.text_light }};
+  --text-light:        {{ site.theme.colors.text_light }};*/
 
-  /* Accent & states */
+  /* Accent & states 
   --accent:            {{ site.theme.colors.accent }};
   --accent-dark:       {{ site.theme.colors.accent_dark }};
   --error:             {{ site.theme.colors.error }};
   --delete:            {{ site.theme.colors.delete }};
-  --border:            {{ site.theme.colors.border }};
+  --border:            {{ site.theme.colors.border }};*/
 
   /* New variables – add these to your _config.yml under theme.colors:
      on_primary: "#ffffff"
      shadow_md:  "rgba(0,0,0,0.1)"
-     shadow_sm:  "rgba(0,0,0,0.05)" */
-  --on-primary:        {{ site.theme.colors.on_primary }};
+     shadow_sm:  "rgba(0,0,0,0.05)" 
+  --on-primary:        {{ site.theme.colors.on_primary }};*/
 }
 
 
@@ -153,8 +153,8 @@ select{
   border: none;
   border-radius: var(--border-radius-2);
   padding: 0.75rem 1.5rem;
-  font-family: {{ site.theme.font.family }};
-  font-weight: {{ site.theme.font.weights[1] }};
+  font-family: {{ site.theme.default.font.family }};
+  font-weight: {{ site.theme.default.font.weights[1] }};
   font-size: 1rem;
   cursor: pointer;
   text-align: center;
@@ -170,8 +170,8 @@ select{
   border: none;
   border-radius: var(--border-radius-2);
   padding: 0.5rem;
-  font-family: {{ site.theme.font.family }};
-  font-weight: {{ site.theme.font.weights[0] }};
+  font-family: {{ site.theme.default.font.family }};
+  font-weight: {{ site.theme.default.font.weights[0] }};
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -187,8 +187,8 @@ select{
   border: none;
   border-radius: var(--border-radius-2);
   padding: 0.75rem;
-  font-family: {{ site.theme.font.family }};
-  font-weight: {{ site.theme.font.weights[1] }};
+  font-family: {{ site.theme.default.font.family }};
+  font-weight: {{ site.theme.default.font.weights[1] }};
   font-size: 1rem;
   cursor: pointer;
   text-align: center;

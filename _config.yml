@@ -26,6 +26,7 @@ theme:
       bg: "#005bbd"
       text: "#ffffff"
       link: "#ffffff"
+      link_hover: "#dce9f8"
 
   font:
     family: "Inter, sans-serif"

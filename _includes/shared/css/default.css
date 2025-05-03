@@ -5,7 +5,7 @@ html {
 body {
     font-family: {{ site.theme.default.font.family }};
     background-color: {{ site.theme.default.color.bg }};
-    color: {{ site.theme.colors.defaults.text }};
+    color: {{ site.theme.colors.default.text }};
 }
 
 section {
