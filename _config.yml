@@ -27,11 +27,6 @@ theme:
       text: "#ffffff"
       link: "#ffffff"
 
-
-
-
-# Theming
-theme:
   font:
     family: "Inter, sans-serif"
     weights: ["400", "600", "700"]
