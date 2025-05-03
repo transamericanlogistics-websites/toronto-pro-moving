@@ -11,8 +11,8 @@
 :root {
 
   /* Shapes */
-  --border-radius-1:     {{ site.theme.border_radius_1 }};
-  --border-radius-2:     {{ site.theme.border_radius_2 }};
+  /*--border-radius-1:     {{ site.theme.border_radius_1 }};
+  --border-radius-2:     {{ site.theme.border_radius_2 }};*/
 
   /* Backgrounds */
   --bg-main:             {{ site.theme.colors.bg_main }};
