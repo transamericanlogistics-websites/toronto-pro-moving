@@ -21,7 +21,7 @@
   nav {
     position: sticky;
     top: 0;
-    background: {{ site.theme.nav.colors.bg | default: site.theme.default.color.bg }};
+    background: {{ site.theme.nav.color.bg | default: site.theme.default.color.bg }};
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.10);
     z-index: 100;
   }
@@ -33,7 +33,7 @@
     margin: 0 !important;
 
     position: relative;
-    background: {{ site.theme.nav.colors.bg | default: site.theme.default.color.bg }};
+    background: {{ site.theme.nav.color.bg | default: site.theme.default.color.bg }};
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -83,7 +83,7 @@
     text-decoration: none;
   }
   .nav-menu li a:hover {
-    color: {{ site.theme.nav.colors.link_hover }};
+    color: {{ site.theme.nav.color.link_hover }};
   }
 
   /* Hide mobile controls by default */
