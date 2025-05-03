@@ -6,22 +6,49 @@ description: "Toronto's trusted movers for residential, commercial, and specialt
 url: "https://torontopromoving.com"
 baseurl: ""
 
+
+theme:
+
+  default:
+    font:
+      family: "Inter"
+      weight:
+        normal: "400"
+        semibold: "600"
+        bold: "700"
+    color:
+      bg: "#ffffff"
+      text: "#1a1a1a"
+      link: "#ffffff"
+
+  nav:
+    color:
+      bg: "#005bbd"
+      text: "#ffffff"
+      link: "#ffffff"
+
+
+
+
 # Theming
 theme:
   font:
     family: "Inter, sans-serif"
     weights: ["400", "600", "700"]
 
-  border_radius_1: "5px"
-  border_radius_2: "5px"
+  radii: ["5px", "5px"]
+    radius_1: "5px"
+    radius_2: "5px"
 
   colors:
-    # Backgrounds
 
-    #nav
-    nav_bg: "#005bbd"
-    nav_links: "#ffffff"
-    nav_links_hover: "#dce9f8"
+    defaults:
+      
+
+    nav:
+      bg: "#005bbd"
+      links: "#ffffff"
+      links_hover: "#dce9f8"
 
 
     bg_main:      "#ffffff"      # Soft blue-tinted white

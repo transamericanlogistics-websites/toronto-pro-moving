@@ -1,6 +1,8 @@
 ---
 ---
 
+{% include shared/css/reset.css %}
+{% include shared/css/default.css %}
 {% include shared/css/fixes.css %}
 {% include shared/css/animations.css %}
 
@@ -47,45 +49,13 @@
   --on-primary:        {{ site.theme.colors.on_primary }};
 }
 
-/* Global reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
-html {
-  scroll-behavior: smooth;
-}
 
-body {
-  font-family: {{ site.theme.font.family }};
-  color: var(--text);
-}
-
-section {
-  padding: 4rem 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-nav {
-  z-index: 2000 !important;
-}
-
-/* Container */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
 
 /* Buttons */
 .btn {
   padding: 0.75rem 1.5rem;
-  border-radius: var(--border-radius-2);
+  border-radius: {{ site.theme.radii[1] }};
   font-weight: {{ site.theme.font.weights[1] }};
 }
 .btn-accent {

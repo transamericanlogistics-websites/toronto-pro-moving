@@ -1,5 +1,10 @@
 <style>
   /* Navigation */
+
+  nav {
+    z-index: 2000 !important;
+  }
+
   /* override btn-accent in nav so it sits inline and has no auto margins */
   nav .actions .btn-accent {
     display: inline-block;
@@ -16,7 +21,7 @@
   nav {
     position: sticky;
     top: 0;
-    background: {{ site.theme.colors.nav_bg }};
+    background: {{ site.theme.nav.colors.bg | default: site.theme.default.color.bg }};
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.10);
     z-index: 100;
   }
@@ -28,7 +33,7 @@
     margin: 0 !important;
 
     position: relative;
-    background: {{ site.theme.colors.nav_bg }};
+    background: {{ site.theme.nav.colors.bg | default: site.theme.default.color.bg }};
     display: flex;
     align-items: center;
     justify-content: space-between;
