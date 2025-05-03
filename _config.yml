@@ -11,7 +11,7 @@ theme:
 
   default:
     font:
-      family: "Inter"
+      family: "Inter, sans-serif"
       weight:
         normal: "400"
         semibold: "600"
