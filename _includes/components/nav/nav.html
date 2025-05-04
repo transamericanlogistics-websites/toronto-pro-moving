@@ -65,7 +65,7 @@
 
   /* Phone link color */
   .link-text {
-    color: {{ site.theme.colors.nav_links }};
+    color: {{ site.theme.nav.color.link | default: site.theme.default.color.link }};
     font-weight: {{ site.theme.default.font.weights[1] }};
   }
   .nav-container .actions .link-text,
@@ -78,8 +78,8 @@
   .nav-menu li a:visited,
   .nav-menu li a:focus,
   .nav-menu li a:active {
-    color: {{ site.theme.colors.nav_links }};
-    font-weight: {{ site.theme.default.font.weights[1] }};
+    color: {{ site.theme.nav.color.link_hover | default: site.theme.default.color.link_hover }};
+    font-weight: {{ site.theme.nav.font.weights[1] | default: site.theme.default.font.weights[1] }};
     text-decoration: none;
   }
   .nav-menu li a:hover {
