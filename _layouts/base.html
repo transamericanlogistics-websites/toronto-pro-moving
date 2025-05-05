@@ -21,6 +21,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  {% include layouts/default.html %}
+  {% if page.layout_name %}
+    {% include layouts/{{ page.layout_name }}/default.html %}
+  {% endif %}
 </body>
 </html>
