@@ -28,7 +28,7 @@
   }
 
   /* Logo in flow */
-  .nav-container .logo {
+  nav .logo {
     margin-left: 1rem;
   }
 
@@ -42,7 +42,7 @@
   }
 
   /* Desktop actions */
-  .nav-container .actions {
+  nav .actions {
     display: flex;
     gap: 1rem;
     align-items: center;
@@ -88,7 +88,7 @@
   /* MOBILE: under 960px */
   @media (max-width: 960px) {
     /* remove side padding */
-    .nav-container {
+    nav {
       padding: 0 !important;
     }
 
@@ -98,7 +98,7 @@
     }
 
     /* position phone icon beside hamburger */
-    .nav-container .actions {
+    nav .actions {
       position: absolute;
       top: 50%;
       right: 3rem;
@@ -190,7 +190,6 @@
 
   
   <nav>
-    <div class="container nav-container">
       <div class="logo">
         {% include_relative assets/images/logo.svg %}
       </div>
@@ -224,7 +223,6 @@
         </ul>
         <button data-scroll-target="#quote" class="btn-accent shake-5s mobile-quote">Get My Quote</button>
       </div>
-    </div>
   </nav>
   
   <script>
