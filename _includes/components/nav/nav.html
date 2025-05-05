@@ -173,9 +173,10 @@
       flex-direction: column;
       gap: 0.75rem;
     }
-    nav a {
-      color: var(--text);
-      font-weight: {{ site.theme.default.font.weights[1] }};
+    .mobile-menu a {
+      color: {{ site.theme.mobile_menu.color.link | default: site.theme.default.color.link }};
+      font-weight: {{ site.theme.nav.font.weight.semibold | default: site.theme.default.font.weight.semibold }};
+      text-decoration: none;
       padding: 0.5rem;
     }
 

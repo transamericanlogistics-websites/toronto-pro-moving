@@ -27,6 +27,12 @@ theme:
       text: "#ffffff"
       link: "#ffffff"
       link_hover: "#dce9f8"
+  
+  mobile_menu:
+    color:
+      bg: "#ffffff"
+      link: "#005bbd"
+
 
   font:
     family: "Inter, sans-serif"
