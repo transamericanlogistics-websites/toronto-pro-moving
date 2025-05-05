@@ -2,20 +2,15 @@
   /* Navigation */
 
   nav {
-    z-index: 2000 !important;
+    z-index: 9999 !important;
   }
 
-  /* override btn-accent in nav so it sits inline and has no auto margins */
-  nav .actions .btn-accent {
-    display: inline-block;
-    margin: 0;
-  }
+
 
   /* ensure the two items are vertically centered */
-  nav .actions {
+  nav{
     display: flex;
     align-items: center;
-    padding-left: 1.5rem; /* optional spacing */
   }
 
   nav {
@@ -63,7 +58,12 @@
     z-index: 100; /* base z-index */
   }
 
-
+  nav i {
+    color: {{ site.theme.nav.color.icon | default: site.theme.default.color.icon }}
+  }
+  nav i:hover {
+    color: {{ site.theme.nav.color.icon_hover | default: site.theme.default.color.icon_hover }}
+  }
 
   /* Desktop nav link colors */
   @media (min-width: 961px){
@@ -78,13 +78,6 @@
     nav a:hover {
       color: {{ site.theme.nav.color.link_hover | default: site.theme.default.color.link_hover }};
     }
-  }
-
-  nav i {
-    color: {{ site.theme.nav.color.icon | default: site.theme.default.color.icon }}
-  }
-  nav i:hover {
-    color: {{ site.theme.nav.color.icon_hover | default: site.theme.default.color.icon_hover }}
   }
 
   /* Hide mobile controls by default */
