@@ -16,6 +16,11 @@ a {
     text-decoration: none;
 }
 
+button {
+    display: inline-block;
+    margin: 0;
+}
+
 /* Container */
 .container {
     width: 90%;
