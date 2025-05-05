@@ -8,7 +8,6 @@ baseurl: ""
 
 defaults:
   - scope:
-      path: ""         # Applies to all files
       type: "pages"    # Could also be "posts" or "drafts" if needed
     values:
       layout: base
