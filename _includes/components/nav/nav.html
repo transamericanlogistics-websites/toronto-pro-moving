@@ -78,6 +78,10 @@
     color: {{ site.theme.nav.color.link_hover | default: site.theme.default.color.link_hover }};
   }
 
+  nav i {
+    color: {{ site.theme.nav.color.icon | default: site.theme.default.color.icon }}
+  }
+
   /* Hide mobile controls by default */
   .hamburger,
   .mobile-menu {
@@ -135,7 +139,6 @@
       background: none;
       border: none;
       font-size: 1.5rem;
-      color: var(--text);
       cursor: pointer;
       z-index: 1001;
     }
