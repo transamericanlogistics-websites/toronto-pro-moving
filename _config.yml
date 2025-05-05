@@ -75,6 +75,9 @@ theme:
 
     on_primary:   "#ffffff"
 
+#content:
+  #hero:
+    #description:
 # Hero section
 hero:
   description: >
