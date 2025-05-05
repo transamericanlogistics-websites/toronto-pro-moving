@@ -4,11 +4,11 @@
 title: "Toronto Pro Moving"
 description: "Toronto's trusted movers for residential, commercial, and specialty relocations."
 url: "https://torontopromoving.com"
-baseurl: ""
+baseurl: "toronto-pro-moving/"
 
 defaults:
   - scope:
-      path: "toronto-pro-moving"         # Applies to all files
+      path: "toronto-pro-moving/"         # Applies to all files
       type: "pages"    # Could also be "posts" or "drafts" if needed
     values:
       layout: base
