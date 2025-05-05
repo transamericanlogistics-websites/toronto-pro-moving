@@ -180,7 +180,6 @@ select{
   background-color: var(--secondary-dark);
 }
 .btn-accent {
-  display: block;
   margin: 0 auto 1.5rem;
   background-color: var(--accent);
   color: var(--text);
