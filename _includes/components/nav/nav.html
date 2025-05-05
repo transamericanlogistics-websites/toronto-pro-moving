@@ -81,6 +81,9 @@
   nav i {
     color: {{ site.theme.nav.color.icon | default: site.theme.default.color.icon }}
   }
+  nav i:hover {
+    color: {{ site.theme.nav.color.icon_hover | default: site.theme.default.color.icon_hover }}
+  }
 
   /* Hide mobile controls by default */
   .hamburger,

@@ -20,6 +20,9 @@ theme:
       bg: "#ffffff"
       text: "#1a1a1a"
       link: "#ffffff"
+      link_hover: ""
+      icon: "#ffffff"
+      icon_hover: "#dce9f8"
 
   nav:
     color:
@@ -27,6 +30,8 @@ theme:
       text: "#ffffff"
       link: "#ffffff"
       link_hover: "#dce9f8"
+      icon: "#ffffff"
+      icon_hover: "#dce9f8"
   
   mobile_menu:
     color:
