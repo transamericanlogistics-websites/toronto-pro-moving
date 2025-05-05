@@ -11,8 +11,6 @@
     margin: 0;
   }
 
-
-
   nav {
     position: sticky;
     top: 0;
@@ -220,7 +218,7 @@
         <a href="tel:{{ site.phone.ie64 | remove: ' ' }}" class="link-text">
           <i class="fas fa-phone"></i><span class="phone-text">{{ site.phone.display }}</span>
         </a>
-        <a href="#quote" class="btn-accent shake-5s">Get My Quote</a>
+        <button data-scroll-target="#quote" class="btn-accent shake-5s">Get My Quote</button>
       </div>
   
       <!-- Mobile menu panel -->
@@ -230,7 +228,7 @@
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
         </ul>
-        <a href="#quote" class="btn-accent shake-5s mobile-quote">Get My Quote</a>
+        <button data-scroll-target="#quote" class="btn-accent shake-5s mobile-quote">Get My Quote</button>
       </div>
     </div>
   </nav>
