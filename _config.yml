@@ -6,6 +6,13 @@ description: "Toronto's trusted movers for residential, commercial, and specialt
 url: "https://torontopromoving.com"
 baseurl: ""
 
+defaults:
+  - scope:
+      path: ""         # Applies to all files
+      type: "pages"    # Could also be "posts" or "drafts" if needed
+    values:
+      layout: base
+
 
 theme:
 
