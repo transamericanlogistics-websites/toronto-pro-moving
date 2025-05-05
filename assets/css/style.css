@@ -3,7 +3,6 @@
 
 {% include shared/css/reset.css %}
 {% include shared/css/default.css %}
-{% include shared/css/components.css %}
 {% include shared/css/fixes.css %}
 {% include shared/css/animations.css %}
 
