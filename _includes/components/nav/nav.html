@@ -5,12 +5,17 @@
     z-index: 9999 !important;
   }
 
-
+  /* override btn-accent in nav so it sits inline and has no auto margins */
+  nav .actions .btn-accent {
+    display: inline-block;
+    margin: 0;
+  }
 
   /* ensure the two items are vertically centered */
-  nav{
+  nav .actions {
     display: flex;
     align-items: center;
+    padding-left: 1.5rem; /* optional spacing */
   }
 
   nav {
