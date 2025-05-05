@@ -18,7 +18,8 @@
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
-
+    
+    list-style: none;
     position: relative;
     background: {{ site.theme.nav.color.bg | default: site.theme.default.color.bg }};
     display: flex;
@@ -134,7 +135,7 @@
     }
 
     /* mobile menu panel */
-    .mobile-menu {
+    nav .mobile-menu {
       display: flex;
       flex-direction: column;
       gap: 1rem;
@@ -151,15 +152,14 @@
       transition: opacity 0.2s ease, transform 0.2s ease;
       z-index: 1000;
     }
-    .mobile-menu.open {
+    nav .mobile-menu.open {
       transform: translateY(0);
       opacity: 1;
       pointer-events: auto;
     }
 
     /* mobile nav links */
-    .mobile-menu {
-      list-style: none;
+    nav .mobile-menu {
       margin: 0;
       padding: 0;
       display: flex;
