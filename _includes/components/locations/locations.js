@@ -14,17 +14,23 @@ function initLeafletLocationsMap(){
         tap: false,
     });
 
-    map.on("click", () => {
+    let mapActivated = false;
+    const mapContainer = document.getElementById("locations-map");
+    
+    function activateMap() {
+        if (mapActivated) return;
+    
         map.scrollWheelZoom.enable();
         map.dragging.enable();
         map.tap && map.tap.enable();
-    });
-  
-    map.on("mouseout", () => {
-        map.scrollWheelZoom.disable();
-        map.dragging.disable();
-        map.tap && map.tap.disable();
-    });
+    
+        mapContainer.classList.add("map-activated");
+        mapActivated = true;
+    }
+    
+    ["click", "mousedown", "touchstart"].forEach(evt =>
+        mapContainer.addEventListener(evt, activateMap, { once: true })
+    );
 
     {% if site.locations.map_theme_url %}
       var tileUrl = "{{ site.locations.map_theme_url }}";
