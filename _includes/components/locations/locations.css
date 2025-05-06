@@ -1,4 +1,4 @@
-#locations {
+locations {
     background-color: var(--bg-secondary);
 }
 /* Force the map and its controls below the nav and other content */
@@ -10,11 +10,11 @@
 }
 
 /* ─── Locations Section ─── */
-#locations {
+locations {
     padding: 4rem 0;
 }
 
-#locations h2 {
+locations h2 {
     text-align: center;
     margin-bottom: 2rem;
     color: var(--primary);
@@ -29,7 +29,7 @@
 }
 
 /* Default list: flex wrap, centered rows */
-#locations .areas {
+locations .areas {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -40,18 +40,18 @@
     max-width: 800px;
 }
 
-#locations .areas li {
+locations .areas li {
     text-align: center;
     margin-bottom: 0.75rem;
 }
 
-#locations .areas li i {
+locations .areas li i {
     color: var(--accent);
     margin-right: 0.5rem;
 }
 
 /* Special 5‐item grid */
-#locations .areas.special-5 {
+locations .areas.special-5 {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
@@ -60,29 +60,29 @@
     list-style: none;
     max-width: 800px;
 }
-#locations .areas.special-5 li:nth-child(1) { grid-column: 2; grid-row: 1; }
-#locations .areas.special-5 li:nth-child(2) { grid-column: 3; grid-row: 1; }
-#locations .areas.special-5 li:nth-child(3) { grid-column: 4; grid-row: 1; }
-#locations .areas.special-5 li:nth-child(4) { grid-column: 2; grid-row: 2; }
-#locations .areas.special-5 li:nth-child(5) { grid-column: 4; grid-row: 2; }
+locations .areas.special-5 li:nth-child(1) { grid-column: 2; grid-row: 1; }
+locations .areas.special-5 li:nth-child(2) { grid-column: 3; grid-row: 1; }
+locations .areas.special-5 li:nth-child(3) { grid-column: 4; grid-row: 1; }
+locations .areas.special-5 li:nth-child(4) { grid-column: 2; grid-row: 2; }
+locations .areas.special-5 li:nth-child(5) { grid-column: 4; grid-row: 2; }
 
 /* ─── MOBILE OVERRIDE (≤600px) ─── */
 @media (max-width: 600px) {
-    #locations > .container:last-of-type {
+    locations > .container:last-of-type {
         width: 100% !important;
         max-width: none !important;
         margin: 0 !important;
         padding: 0 1rem !important;
     }
-    #locations .areas,
-    #locations .areas.special-5 {
+    locations .areas,
+    locations .areas.special-5 {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 1rem;
         margin: 0 auto;
         padding: 0;
     }
-    #locations .areas.special-5 li {
+    locations .areas.special-5 li {
         grid-column: auto !important;
         grid-row: auto !important;
     }
