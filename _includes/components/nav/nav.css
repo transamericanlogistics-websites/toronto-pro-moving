@@ -1,40 +1,16 @@
-/* Navigation */
-
-nav {
-    
-}
-
 nav {
     z-index: 9999;
     position: sticky;
     top: 0;
     background: {{ site.theme.nav.color.bg | default: site.theme.default.color.bg }};
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.10);
-    
+
     list-style: none;
     background: {{ site.theme.nav.color.bg | default: site.theme.default.color.bg }};
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem; /* adjust vertical & horizontal padding as needed */
-}
-
-/* Desktop menu */
-nav .desktop-menu {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 2rem;
-}
-
-/* Desktop actions */
-nav .actions {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    margin-right: 1rem;
-    z-index: 100; /* base z-index */
 }
 
 nav i {
@@ -57,6 +33,24 @@ nav i:hover {
     nav a:hover {
         color: {{ site.theme.nav.color.link_hover | default: site.theme.default.color.link_hover }};
     }
+}
+
+/* Desktop menu */
+nav .desktop-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+/* Desktop actions */
+nav .actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-right: 1rem;
+    z-index: 100; /* base z-index */
 }
 
 /* Hide mobile controls by default */
