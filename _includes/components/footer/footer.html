@@ -61,12 +61,21 @@
     text-decoration: underline;
   }
 
-  /* MOBILE: hide contact icons */
-  @media (max-width: 600px) {
-    footer .col.contact i {
-      display: none;
-    }
+
+
+  footer .email {
+    display: inline;
+    word-break: break-all; /* ensures it wraps if needed */
   }
+
+  footer .email .at {
+    display: block;
+  }
+
+  footer .email .domain {
+    display: block;
+  }
+
 </style>
 
 <footer>
@@ -114,7 +123,7 @@
         </p>
         <p>
           <i class="fas fa-envelope"></i>
-          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+          <a href="mailto:{{ site.email }}">{{ site.email | split: "@" | first }}<span class="at">@</span><span class="domain">{{ site.email | split: "@" | last }}</span></a>
         </p>
       </div>
     </div>
