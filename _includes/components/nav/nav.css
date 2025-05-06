@@ -5,7 +5,6 @@ nav {
 }
 
 nav {
-    display: block;
     position: sticky;
     top: 0;
     background: {{ site.theme.nav.color.bg | default: site.theme.default.color.bg }};
