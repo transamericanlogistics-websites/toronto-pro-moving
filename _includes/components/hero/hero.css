@@ -1,24 +1,24 @@
 /* Hero section */
-.hero {
+hero {
     background: var(--bg-secondary);
     text-align: center;
     padding: 4rem 0;
     position: relative;
 }
 
-.hero h1 {
+hero h1 {
     color: var(--primary);
     font-size: 2.75rem;
     margin-bottom: 1rem;
 }
 
-.hero p {
+hero p {
     font-size: 1.125rem;
     max-width: 700px;
     margin: 0 auto 2rem;
 }
 
-.hero .btn-accent {
+hero .btn-accent {
     display: inline-block;
     margin: 1rem auto;
 }
@@ -42,7 +42,7 @@
     overflow: hidden;
 }
 
-.hero .hero-img img {
+hero .hero-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;         /* fill & crop to container */
@@ -78,7 +78,7 @@
 
 /* Basic responsive adjustments */
 @media (max-width: 768px) {
-    .hero .hero-img {
+    hero .hero-img {
         height: 50vh;
         max-height: 500px;
     }
@@ -90,7 +90,7 @@
 }
 
 @media (max-width: 480px) {
-    .hero .hero-img {
+    hero .hero-img {
         max-height: 325px;
     }
 
