@@ -131,7 +131,7 @@ nav i:hover {
         pointer-events: auto;
     }
     nav a {
-        color: {{ site.theme.mobile_menu.color.link | default: site.theme.default.color.link }};
+        color: {{ site.theme.nav.mobile_menu.color.link | default: site.theme.default.mobile_menu.color.link }};
     }
     nav .mobile-quote {
         display: block;
