@@ -1,10 +1,10 @@
 ---
 ---
 
-{% include shared/css/reset.css %}
-{% include shared/css/default.css %}
-{% include shared/css/fixes.css %}
-{% include shared/css/animations.css %}
+{% include base/css/reset.css %}
+{% include base/css/default.css %}
+{% include base/css/fixes.css %}
+{% include base/css/animations.css %}
 
 
  
