@@ -7,7 +7,6 @@ function initLeafletLocationsMap(){
         { name: "{{ location.name }}", coords: [{{ location.coordinates }}] }{% unless forloop.last %},{% endunless %}
       {% endfor %}
     ];
-    console.log("Locations:", locations);
 
     const map = L.map("locations-map");
 
