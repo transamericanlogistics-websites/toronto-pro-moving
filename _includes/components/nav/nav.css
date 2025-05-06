@@ -77,10 +77,6 @@ nav i:hover {
 
 /* MOBILE: under 960px */
 @media (max-width: 960px) {
-    /* remove side padding */
-    nav {
-        padding: 0 !important;
-    }
 
     /* hide desktop menu */
     nav .desktop-menu {
