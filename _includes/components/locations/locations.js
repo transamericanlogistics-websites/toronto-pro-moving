@@ -32,7 +32,7 @@ function initLeafletLocationsMap(){
 
     map.fitBounds(markers.map(m => m.getLatLng()), { padding: [40, 40] });
 
-});
+};
 
 
 document.addEventListener("DOMContentLoaded", () => {
