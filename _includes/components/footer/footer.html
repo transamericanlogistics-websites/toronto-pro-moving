@@ -61,20 +61,27 @@
     text-decoration: underline;
   }
 
+  /* MOBILE: hide contact icons */
+  @media (max-width: 600px) {
+    footer .col.contact i {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 980px) {
+    footer .col.contact {
+      padding: 0 1rem; /* adds horizontal spacing */
+      word-break: break-word; /* allows email to wrap nicely */
+      text-align: left; /* optional: less awkward wrapping */
+    }
 
-
-  footer .email {
-    display: inline;
-    word-break: break-all; /* ensures it wraps if needed */
+    footer .col.contact a {
+      display: inline-block;
+      max-width: 100%;
+      overflow-wrap: anywhere; /* lets it break on @ if needed */
+    }
   }
 
-  footer .email .at {
-    display: block;
-  }
-
-  footer .email .domain {
-    display: block;
-  }
 
 </style>
 
@@ -123,7 +130,7 @@
         </p>
         <p>
           <i class="fas fa-envelope"></i>
-          <a href="mailto:{{ site.email }}">{{ site.email | split: "@" | first }}<span class="at">@</span><span class="domain">{{ site.email | split: "@" | last }}</span></a>
+          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
         </p>
       </div>
     </div>
