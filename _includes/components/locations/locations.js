@@ -8,7 +8,23 @@ function initLeafletLocationsMap(){
       {% endfor %}
     ];
 
-    const map = L.map("locations-map");
+    const map = L.map("locations-map", {
+        scrollWheelZoom: false,
+        dragging: false,
+        tap: false,
+    });
+
+    map.on("click", () => {
+        map.scrollWheelZoom.enable();
+        map.dragging.enable();
+        map.tap && map.tap.enable();
+    });
+  
+    map.on("mouseout", () => {
+        map.scrollWheelZoom.disable();
+        map.dragging.disable();
+        map.tap && map.tap.disable();
+    });
 
     {% if site.locations.map_theme_url %}
       var tileUrl = "{{ site.locations.map_theme_url }}";

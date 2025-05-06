@@ -9,6 +9,19 @@ locations {
     z-index: 0 !important;
 }
 
+#locations-map:after {
+    content: "Click to activate map";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 4px 8px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
 /* ─── Locations Section ─── */
 locations {
     padding: 4rem 0;
