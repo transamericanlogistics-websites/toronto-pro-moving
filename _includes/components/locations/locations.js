@@ -1,16 +1,16 @@
-  document.addEventListener("DOMContentLoaded", () => {
-    // pull your array of locations from config
+{% assign locations = site.locations.location_data %}
+  
+function initLeafletLocationsMap(){
+
     const locations = [
-      {% for loc in locs %}
-        { name: "{{ loc.name }}", coords: [{{ loc.coordinates }}] }{% unless forloop.last %},{% endunless %}
+      {% for location in locations %}
+        { name: "{{ location.name }}", coords: [{{ location.coordinates }}] }{% unless forloop.last %},{% endunless %}
       {% endfor %}
     ];
     console.log("Locations:", locations);
 
-    // init map
     const map = L.map("locations-map");
 
-    // tile layer URL from config, or default OSM
     {% if site.locations.map_theme_url %}
       var tileUrl = "{{ site.locations.map_theme_url }}";
     {% else %}
@@ -20,7 +20,6 @@
     var attribution = "{{ site.locations.map_theme_attribution | default: '&copy; OpenStreetMap contributors' }}";
     L.tileLayer(tileUrl, { attribution }).addTo(map);
 
-    // single‐config marker color
     const markerIconClass = "{{ site.locations.map_marker_icon | default: 'fa-solid fa-location-dot' }}"
     const markerColor = "{{ site.locations.map_marker_color | default: '#960A0A' }}";
     const markerIcon = L.divIcon({
@@ -29,9 +28,13 @@
       iconAnchor: [10, 20]
     });
 
-    // add markers & collect them for bounds
-    const markers = locations.map(loc => L.marker(loc.coords, { icon: markerIcon }).addTo(map));
+    const markers = locations.map(location => L.marker(location.coords, { icon: markerIcon }).addTo(map));
 
-    // auto‐fit to all markers
     map.fitBounds(markers.map(m => m.getLatLng()), { padding: [40, 40] });
-  });
+
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    initLeafletLocationsMap();
+};

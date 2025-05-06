@@ -1,8 +1,4 @@
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-/>
-<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+{% assign locations = site.locations.location_data %}
 
 <section id="locations">
   <div class="container">
@@ -11,12 +7,11 @@
   </div>
 
   <div class="container">
-    {% assign locs = site.locations.location_data %}
-    {% assign n = locs | size %}
-    <ul class="areas{% if n == 5 %} special-5{% endif %}">
-      {% for loc in locs %}
+    {% assign location_count = locations | size %}
+    <ul class="areas{% if location_count == 5 %} special-5{% endif %}">
+      {% for location in locations %}
         <li>
-          <i class="fas fa-map-marker-alt"></i>{{ loc.name }}
+          <i class="fas fa-map-marker-alt"></i>{{ location.name }}
         </li>
       {% endfor %}
     </ul>
