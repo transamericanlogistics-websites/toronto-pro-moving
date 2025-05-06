@@ -1,6 +1,7 @@
 <head>
 
     {% include shared/html/meta.html %}
+    {% include shared/html/assets.html %}
 
     <script src="assets/shared/shared.js"></script>
     <link rel="stylesheet" href="assets/shared/shared.css">
@@ -14,7 +15,5 @@
     {%- assign page_base = page.name | split: '.' | first -%}
     <link rel="stylesheet" href="assets/pages/{{ page_base }}/{{ page_base }}.css">
     <script src="assets/pages/{{ page_base }}/{{ page_base }}.js"></script>
-
-    {% include shared/html/assets.html %}
 
 </head>
