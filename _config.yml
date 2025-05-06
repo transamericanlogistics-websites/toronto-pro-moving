@@ -4,7 +4,7 @@
 title: "Toronto Pro Moving"
 description: "Toronto's trusted movers for residential, commercial, and specialty relocations."
 url: "https://torontopromoving.com"
-baseurl: "toronto-pro-moving/"
+baseurl: ""
 
 include:
   - assets
