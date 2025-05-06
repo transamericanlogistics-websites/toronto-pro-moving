@@ -4,7 +4,6 @@ nav {
     top: 0;
     background: {{ site.theme.nav.color.bg | default: site.theme.default.color.bg }};
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.10);
-    list-style: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
