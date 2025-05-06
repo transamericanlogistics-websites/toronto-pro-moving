@@ -1,4 +1,5 @@
 /* fix body scrollable overflow */
 body, html{
-    max-width: 100%;
+
+    overflow-x: hidden;
 } 
