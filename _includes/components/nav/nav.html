@@ -10,7 +10,7 @@
 
     <ul class="desktop-menu">
       {% for link in site.nav_links %}
-        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        <li data-scroll-target="{{ link.title }}">{{ link.title }}</li>
       {% endfor %}
     </ul>
 
