@@ -67,20 +67,33 @@
       display: none;
     }
   }
-  
+
   @media (max-width: 980px) {
+    footer .footer-cols {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    footer .col {
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 2rem;
+    }
+
     footer .col.contact {
-      padding: 0 1rem; /* adds horizontal spacing */
-      word-break: break-word; /* allows email to wrap nicely */
-      text-align: left; /* optional: less awkward wrapping */
+      order: 4; /* ensures contact is at the bottom */
+    }
+
+    footer .col.contact .footer-content {
+      align-items: center;
     }
 
     footer .col.contact a {
-      display: inline-block;
-      max-width: 100%;
-      overflow-wrap: anywhere; /* lets it break on @ if needed */
+      overflow-wrap: break-word;
     }
   }
+
 
 
 </style>
