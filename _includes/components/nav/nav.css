@@ -128,7 +128,7 @@ nav i:hover {
         color: {{ site.theme.nav.mobile_menu.color.link | default: site.theme.default.mobile_menu.color.link }};
     }
     nav a:hover {
-        color: {{ site.theme.nav.mobile_menu.color.link | default: site.theme.default.mobile_menu.color.link }};
+        color: {{ site.theme.nav.mobile_menu.color.link_hover | default: site.theme.default.mobile_menu.color.link_hover }};
     }
     nav .mobile-quote {
         display: block;
