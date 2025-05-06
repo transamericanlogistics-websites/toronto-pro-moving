@@ -17,6 +17,7 @@ nav ul {
 nav a {
     display: flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
     font-weight: {{ site.theme.nav.font.weight.semibold | default: site.theme.default.font.weight.semibold }};
 }
