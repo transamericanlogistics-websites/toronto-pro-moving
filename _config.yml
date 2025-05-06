@@ -161,15 +161,18 @@ hours:
   - "Sat–Sun: 9 AM – 6 PM"
 
 # Navigation links
-nav_links:
-  - title: "Services"
-    url: "#faq"
-  - title: "Locations"
-    url: "#locations"
-  - title: "Moving Tips"
-    url: "#faq"
-  - title: "About Us"
-    url: "#about"
+nav:
+  links:
+    - title: "Services"
+      scroll_target: "services"
+    - title: "Locations"
+      scroll_target: "locations"
+    - title: "Moving Tips"
+      scroll_target: "faq"
+    - title: "About Us"
+      scroll_target: "about"
+    - title: "Careers"
+      url: "https://talgroupofcompanies-internal-websites.github.io/mover-swamper-course/"
 
 # Locations map & data
 locations:
