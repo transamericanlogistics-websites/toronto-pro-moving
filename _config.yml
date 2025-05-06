@@ -23,6 +23,10 @@ theme:
       link_hover: ""
       icon: "#ffffff"
       icon_hover: "#dce9f8"
+      mobile_menu:
+        bg: "#ffffff"
+        link: "#005bbd"
+        link_hover: "#005bbd"
 
   nav:
     color:
@@ -32,12 +36,10 @@ theme:
       link_hover: "#dce9f8"
       icon: "#ffffff"
       icon_hover: "#dce9f8"
-  
-  mobile_menu:
-    color:
-      bg: "#ffffff"
-      link: "#005bbd"
-      link_hover: "#005bbd"
+      mobile_menu:
+        bg: "#ffffff"
+        link: "#005bbd"
+        link_hover: "#005bbd"
 
 
   font:

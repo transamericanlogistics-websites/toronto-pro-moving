@@ -1,21 +1,19 @@
 <nav>
+
     <div class="logo">
       {% include_relative assets/images/logo.svg %}
     </div>
 
-    <!-- Hamburger toggles mobile menu -->
-    <button class="hamburger" aria-label="Toggle menu">
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">
       <i class="fa-solid fa-bars"></i>
     </button>
 
-    <!-- Desktop menu -->
     <ul class="desktop-menu">
       {% for link in site.nav_links %}
         <li><a href="{{ link.url }}">{{ link.title }}</a></li>
       {% endfor %}
     </ul>
 
-    <!-- Desktop actions: phone + quote -->
     <div class="actions">
       <a href="tel:{{ site.phone.ie64 | remove: ' ' }}">
         <i class="fas fa-phone"></i><span class="phone-text">{{ site.phone.display }}</span>
@@ -23,13 +21,13 @@
       <button data-scroll-target="#quote" class="btn-accent shake-5s">Get My Quote</button>
     </div>
 
-    <!-- Mobile menu panel -->
     <div class="mobile-menu">
-      <ul class="mobile-nav">
+      <ul>
         {% for link in site.nav_links %}
           <li><a href="{{ link.url }}">{{ link.title }}</a></li>
         {% endfor %}
       </ul>
       <button data-scroll-target="#quote" class="btn-accent shake-5s mobile-quote">Get My Quote</button>
     </div>
+
 </nav>
