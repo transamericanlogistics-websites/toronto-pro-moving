@@ -5,6 +5,12 @@
   
     <script src="/assets/shared/shared.js"></script>
     <link rel="stylesheet" href="/assets/shared/shared.css">
+
+    {% if page.layout %}
+        <link rel="stylesheet" href="/assets/layouts/{{ page.layout}}/{{ page.layout }}.css">
+        <script src="/assets/layouts/{{ page.layout }}/{{ page.layout }}.js"></script>
+    {% endif %}
+
   
     {%- assign page_base = page.name | split: '.' | first -%}
     <link rel="stylesheet" href="/assets/pages/{{ page_base }}/{{ page_base }}.css">
