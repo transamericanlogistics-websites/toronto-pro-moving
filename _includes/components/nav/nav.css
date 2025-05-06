@@ -9,11 +9,9 @@ nav {
     justify-content: space-between;
     padding: 1rem;
 }
-
 nav ul {
     list-style: none;
 }
-
 nav a {
     display: flex;
     align-items: center;
@@ -21,7 +19,6 @@ nav a {
     text-decoration: none;
     font-weight: {{ site.theme.nav.font.weight.semibold | default: site.theme.default.font.weight.semibold }};
 }
-
 nav i {
     color: {{ site.theme.nav.color.icon | default: site.theme.default.color.icon }}
 }
@@ -29,7 +26,6 @@ nav i:hover {
     color: {{ site.theme.nav.color.icon_hover | default: site.theme.default.color.icon_hover }}
 }
 
-/* Desktop nav link colors */
 @media (min-width: 961px){
     nav a,
     nav a:visited,
@@ -63,23 +59,16 @@ nav i:hover {
 
 }
 
-
-/* Hide phone number text under 1080px */
 @media (max-width: 1080px) {
     .phone-text {
         display: none;
     }
 }
 
-/* MOBILE: under 960px */
 @media (max-width: 960px) {
-
-    /* hide desktop menu */
     nav .desktop-menu {
         display: none;
     }
-
-    /* position phone icon beside mobile-menu-toggle */
     nav .actions {
         position: absolute;
         top: 50%;
@@ -89,12 +78,9 @@ nav i:hover {
         gap: 1rem;
         align-items: center;
     }
-
     nav .actions button {
         display: none;
     }
-
-    /* mobile-menu-toggle toggle */
     nav .mobile-menu-toggle {
         display: block;
         position: absolute;
@@ -107,8 +93,6 @@ nav i:hover {
         cursor: pointer;
         z-index: 1001;
     }
-
-    /* mobile menu panel */
     nav .mobile-menu {
         display: flex;
         align-items: center;
