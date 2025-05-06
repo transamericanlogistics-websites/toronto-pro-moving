@@ -22,11 +22,6 @@ nav {
     padding: 1rem; /* adjust vertical & horizontal padding as needed */
 }
 
-/* Logo in flow */
-nav .logo {
-    margin-left: 1rem;
-}
-
 /* Desktop menu */
 .desktop-menu {
     display: flex;
