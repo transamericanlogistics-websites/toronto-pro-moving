@@ -1,18 +1,16 @@
 /* Navigation */
 
 nav {
-    z-index: 9999;
+    
 }
 
 nav {
+    z-index: 9999;
     position: sticky;
     top: 0;
     background: {{ site.theme.nav.color.bg | default: site.theme.default.color.bg }};
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.10);
-}
-
-/* Full-width nav with flex layout */
-nav {
+    
     list-style: none;
     background: {{ site.theme.nav.color.bg | default: site.theme.default.color.bg }};
     display: flex;
