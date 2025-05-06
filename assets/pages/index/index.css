@@ -1,3 +1,19 @@
 ---
 ---
+{% include components/hero/hero.css %}
 
+{% include components/quote/quote.css %}
+
+{% include components/about/about.css %}
+
+{% include components/cta-1/cta-1.css %}
+
+{% include components/testimonials/testimonials.css %}
+
+{% include components/locations/locations.css %}
+
+{% include components/faq/faq.css %}
+
+{% include components/contact/contact.css %}
+
+{% include components/cta-2/cta-2.css %}
