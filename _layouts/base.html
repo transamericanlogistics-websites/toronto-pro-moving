@@ -8,9 +8,9 @@
   <script src="assets/shared/shared.js"></script>
   <link rel="stylesheet" href="assets/shared/shared.css">
 
-  {% if page.layout_name %}
-    <link rel="stylesheet" href="/assets/layouts/{{ page.layout_name }}/{{ page.layout_name }}.css">
-    <script src="/assets/layouts/{{ page.layout_name }}/{{ page.layout_name }}.js"></script>
+  {% if page.layout %}
+    <link rel="stylesheet" href="/assets/layouts/{{ page.layout}}/{{ page.layout }}.css">
+    <script src="/assets/layouts/{{ page.layout }}/{{ page.layout }}.js"></script>
   {% endif %}
 
   {%- assign page_base_name = page.name | split: '.' | first -%}
@@ -21,8 +21,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  {% if page.layout_name %}
-    {% include layouts/{{ page.layout_name }}/default.html %}
-  {% endif %}
+  {{ content }}
 </body>
 </html>
