@@ -137,7 +137,13 @@ nav i:hover {
         flex-direction: column;
         gap: 1rem;
     }
-    nav a {
+    nav a,
+    nav a:visited,
+    nav a:focus,
+    nav a:active {
+        color: {{ site.theme.nav.mobile_menu.color.link | default: site.theme.default.mobile_menu.color.link }};
+    }
+    nav a:hover {
         color: {{ site.theme.nav.mobile_menu.color.link | default: site.theme.default.mobile_menu.color.link }};
     }
     nav .mobile-quote {
