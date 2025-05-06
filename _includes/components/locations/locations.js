@@ -37,4 +37,4 @@ function initLeafletLocationsMap(){
 
 document.addEventListener("DOMContentLoaded", () => {
     initLeafletLocationsMap();
-};
+});
