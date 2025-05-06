@@ -33,31 +33,30 @@ nav i:hover {
     nav a:hover {
         color: {{ site.theme.nav.color.link_hover | default: site.theme.default.color.link_hover }};
     }
+
+    nav .hamburger,
+    nav .mobile-menu {
+        display: none;
+    }
+
+    nav .desktop-menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 2rem;
+    }
+
+    nav .actions {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin-right: 1rem;
+        z-index: 100; /* base z-index */
+    }
+
 }
 
-/* Desktop menu */
-nav .desktop-menu {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 2rem;
-}
-
-/* Desktop actions */
-nav .actions {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    margin-right: 1rem;
-    z-index: 100; /* base z-index */
-}
-
-/* Hide mobile controls by default */
-.hamburger,
-.mobile-menu {
-    display: none;
-}
 
 /* Hide phone number text under 1080px */
 @media (max-width: 1080px) {
@@ -86,18 +85,16 @@ nav .actions {
         z-index: 1002; /* above hamburger */
     }
 
-    /* hide desktop quote button */
     nav .actions button {
         display: none;
     }
 
-    /* show phone icon text */
-    .actions .link-text {
+    nav .actions .link-text {
         display: inline-block;
     }
 
     /* hamburger toggle */
-    .hamburger {
+    nav .hamburger {
         display: block;
         position: absolute;
         top: 50%;
@@ -157,7 +154,7 @@ nav .actions {
     }
 
     /* remove phone link from mobile panel */
-    .mobile-menu .link-text {
+    nav .mobile-menu .link-text {
         display: none;
     }
 }
