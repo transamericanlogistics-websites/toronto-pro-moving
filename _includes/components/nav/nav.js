@@ -10,26 +10,35 @@ function initResponsivePhoneText() {
   
     if (!phoneText || !desktopMenu) return;
   
-    function checkOverlap() {
-      const phoneRect = phoneText.getBoundingClientRect();
-      const menuRect = desktopMenu.getBoundingClientRect();
+    // Clone phoneText and make it invisible but still interactable for observing
+    const ghost = phoneText.cloneNode(true);
+    ghost.style.visibility = 'hidden';
+    ghost.style.position = 'absolute';
+    ghost.style.pointerEvents = 'none';
+    ghost.style.top = phoneText.offsetTop + 'px';
+    ghost.style.left = phoneText.offsetLeft + 'px';
+    ghost.style.width = phoneText.offsetWidth + 'px';
+    ghost.style.height = phoneText.offsetHeight + 'px';
+    phoneText.parentElement.appendChild(ghost);
   
-      const isOverlapping =
-        phoneRect.left < menuRect.right &&
-        phoneRect.right > menuRect.left &&
-        phoneRect.top < menuRect.bottom &&
-        phoneRect.bottom > menuRect.top;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
   
-      if (isOverlapping) {
-        phoneText.style.display = 'none';
-      } else {
-        phoneText.style.display = '';
+        // Avoid flickering by only reacting when intersection ratio actually changes
+        if (entry.isIntersecting && entry.intersectionRatio > 0) {
+          phoneText.style.display = 'none';
+        } else {
+          phoneText.style.display = '';
+        }
+      },
+      {
+        root: null,
+        threshold: 0.01,
       }
-    }
+    );
   
-    // Run on load and resize
-    window.addEventListener('resize', checkOverlap);
-    window.addEventListener('load', checkOverlap);
+    observer.observe(ghost);
   }
   
   
