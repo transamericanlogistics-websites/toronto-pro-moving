@@ -12,11 +12,10 @@ function initResponsivePhoneText() {
   
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Only hide if ACTUALLY intersecting
-        if (entry.isIntersecting) {
+        if (entry && entry.isIntersecting) {
           phoneText.style.display = 'none';
         } else {
-          phoneText.style.display = 'block';
+          phoneText.style.display = '';
         }
       },
       {
@@ -25,8 +24,12 @@ function initResponsivePhoneText() {
       }
     );
   
-    // Observe desktopMenu — when it intersects phoneText, hide
-    observer.observe(desktopMenu);
+    // phoneText is observed to see if it intersects with desktopMenu
+    observer.observe(phoneText);
+  
+    // Hack to force proper intersection region
+    phoneText.style.position = 'relative';
+    desktopMenu.style.zIndex = '1';
   }
   
   
