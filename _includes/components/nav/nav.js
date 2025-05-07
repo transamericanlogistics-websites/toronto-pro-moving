@@ -10,32 +10,26 @@ function initResponsivePhoneText() {
   
     if (!phoneText || !desktopMenu) return;
   
-    let isHidden = false;
+    function checkOverlap() {
+      const phoneRect = phoneText.getBoundingClientRect();
+      const menuRect = desktopMenu.getBoundingClientRect();
   
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
+      const isOverlapping = !(
+        phoneRect.right < menuRect.left ||
+        phoneRect.left > menuRect.right ||
+        phoneRect.bottom < menuRect.top ||
+        phoneRect.top > menuRect.bottom
+      );
   
-        // Only hide if they overlap *AND* we're not already hidden
-        if (entry.isIntersecting && !isHidden) {
-          phoneText.style.display = 'none';
-          isHidden = true;
-        }
+      phoneText.style.display = isOverlapping ? 'none' : '';
+    }
   
-        // Only show if they do NOT overlap *AND* we are currently hidden
-        if (!entry.isIntersecting && isHidden) {
-          phoneText.style.display = '';
-          isHidden = false;
-        }
-      },
-      {
-        root: null,
-        threshold: 0,
-      }
-    );
-  
-    // Observe if phoneText is overlapping with desktopMenu
-    observer.observe(desktopMenu);
+    // Check on resize
+    window.addEventListener('resize', checkOverlap);
+    // Check on load
+    window.addEventListener('load', checkOverlap);
+    // Check after fonts/layout shift
+    requestAnimationFrame(checkOverlap);
   }
   
   
