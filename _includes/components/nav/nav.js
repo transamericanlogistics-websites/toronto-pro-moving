@@ -40,6 +40,7 @@ function initResponsivePhoneText() {
     
     // Check on resize events
     window.addEventListener('resize', checkWidth);
+    window.addEventListener('load', phoneText.display='none');
     
     // Run immediately on function call rather than waiting for load event
     checkWidth();
