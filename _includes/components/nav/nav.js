@@ -10,6 +10,9 @@ function initResponsivePhoneText() {
   
     if (!phoneText || !desktopMenu) return;
   
+    let lastOverlapState = null;
+    let resizeTimeout;
+  
     function checkOverlap() {
       const phoneRect = phoneText.getBoundingClientRect();
       const menuRect = desktopMenu.getBoundingClientRect();
@@ -21,16 +24,23 @@ function initResponsivePhoneText() {
         phoneRect.top > menuRect.bottom
       );
   
-      phoneText.style.display = isOverlapping ? 'none' : '';
+      if (isOverlapping !== lastOverlapState) {
+        phoneText.style.display = isOverlapping ? 'none' : '';
+        lastOverlapState = isOverlapping;
+      }
     }
   
-    // Check on resize
-    window.addEventListener('resize', checkOverlap);
-    // Check on load
+    // Debounce for performance and stability
+    function onResize() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(checkOverlap, 100); // adjust delay as needed
+    }
+  
+    window.addEventListener('resize', onResize);
     window.addEventListener('load', checkOverlap);
-    // Check after fonts/layout shift
     requestAnimationFrame(checkOverlap);
   }
+  
   
   
   
