@@ -17,8 +17,9 @@ function initResponsivePhoneText() {
     function checkWidth() {
       const width = window.innerWidth;
       
-      // Only process if width changed since last check
-      if (width === lastWidth) return;
+      // For initial load, we want to process regardless of lastWidth
+      // Only skip if width hasn't changed during resize events
+      if (width === lastWidth && lastWidth !== window.innerWidth) return;
       
       // Stabilize against odd/even flickering by rounding to even number
       const roundedWidth = Math.floor(width / 2) * 2;
@@ -27,27 +28,22 @@ function initResponsivePhoneText() {
       lastWidth = width;
       
       // Get fixed breakpoint - adjust this value to match your site
-      // Find a breakpoint by testing your site manually
       const breakpoint = 1100; // Example - adjust this value!
       
       // Simple rule - show/hide based on rounded width
       const shouldHide = roundedWidth <= breakpoint;
       
-      // Only update if state changes
-      if (shouldHide !== currentlyHidden) {
-        phoneText.style.display = shouldHide ? 'none' : '';
-        currentlyHidden = shouldHide;
-      }
+      // Update the visibility
+      phoneText.style.display = shouldHide ? 'none' : '';
+      currentlyHidden = shouldHide;
     }
     
     // Check on resize events
-    window.addEventListener('onload', checkWidth);
     window.addEventListener('resize', checkWidth);
     
-    // Initial check
+    // Run immediately on function call rather than waiting for load event
     checkWidth();
-  }
-  
+}
   
   
   
