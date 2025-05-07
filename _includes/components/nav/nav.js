@@ -6,39 +6,36 @@ function initMobileMenuToggle() {
 
 function initResponsivePhoneText() {
     const phoneText = document.querySelector('.phone-text');
-    const navInner = document.querySelector('.nav-inner');
     const desktopMenu = document.querySelector('.desktop-menu');
-    const actions = document.querySelector('.actions');
   
-    if (!phoneText || !navInner || !desktopMenu || !actions) return;
+    if (!phoneText || !desktopMenu) return;
   
-    let lastState = null;
+    let isHidden = false;
   
-    function checkOverlap() {
-      const navWidth = Math.floor(navInner.offsetWidth);
-      const menuWidth = Math.floor(desktopMenu.offsetWidth + actions.offsetWidth);
-      const buffer = 10; // prevents toggling on 1px shifts
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
   
-      const shouldHide = menuWidth + buffer > navWidth;
+        // Only hide if they overlap *AND* we're not already hidden
+        if (entry.isIntersecting && !isHidden) {
+          phoneText.style.display = 'none';
+          isHidden = true;
+        }
   
-      if (shouldHide !== lastState) {
-        phoneText.style.display = shouldHide ? 'none' : '';
-        lastState = shouldHide;
+        // Only show if they do NOT overlap *AND* we are currently hidden
+        if (!entry.isIntersecting && isHidden) {
+          phoneText.style.display = '';
+          isHidden = false;
+        }
+      },
+      {
+        root: null,
+        threshold: 0,
       }
-    }
+    );
   
-    // Run once initially
-    window.addEventListener('load', checkOverlap);
-  
-    // Debounced resize to avoid rapid toggling
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(checkOverlap, 100);
-    });
-  
-    // Optional: if dynamic content might change layout later
-    new ResizeObserver(checkOverlap).observe(navInner);
+    // Observe if phoneText is overlapping with desktopMenu
+    observer.observe(desktopMenu);
   }
   
   
