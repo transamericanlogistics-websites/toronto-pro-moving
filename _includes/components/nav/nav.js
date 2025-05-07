@@ -11,33 +11,43 @@ function initResponsivePhoneText() {
   
     let isHidden = false;
   
-    function checkOverlap() {
-      // Always keep the element visible in layout so we can detect overlaps
-      phoneText.style.visibility = 'hidden';
-      phoneText.style.pointerEvents = 'none'; // optional, for UX
+    // Create ghost element
+    const ghost = phoneText.cloneNode(true);
+    ghost.style.position = 'absolute';
+    ghost.style.visibility = 'hidden';
+    ghost.style.pointerEvents = 'none';
+    ghost.style.margin = '0';
+    ghost.style.padding = '0';
+    ghost.style.border = 'none';
+    document.body.appendChild(ghost);
   
-      const phoneRect = phoneText.getBoundingClientRect();
+    function updateGhostPosition() {
+      const rect = phoneText.getBoundingClientRect();
+      ghost.style.top = `${window.scrollY + rect.top}px`;
+      ghost.style.left = `${window.scrollX + rect.left}px`;
+      ghost.style.width = `${rect.width}px`;
+      ghost.style.height = `${rect.height}px`;
+    }
+  
+    function checkOverlap() {
+      updateGhostPosition();
+  
+      const ghostRect = ghost.getBoundingClientRect();
       const menuRect = desktopMenu.getBoundingClientRect();
   
       const isOverlapping = !(
-        phoneRect.right <= menuRect.left ||
-        phoneRect.left >= menuRect.right ||
-        phoneRect.bottom <= menuRect.top ||
-        phoneRect.top >= menuRect.bottom
+        ghostRect.right <= menuRect.left ||
+        ghostRect.left >= menuRect.right ||
+        ghostRect.bottom <= menuRect.top ||
+        ghostRect.top >= menuRect.bottom
       );
   
-      if (isOverlapping) {
-        if (!isHidden) {
-          phoneText.style.visibility = 'hidden';
-          phoneText.style.pointerEvents = 'none';
-          isHidden = true;
-        }
-      } else {
-        if (isHidden) {
-          phoneText.style.visibility = 'visible';
-          phoneText.style.pointerEvents = '';
-          isHidden = false;
-        }
+      if (isOverlapping && !isHidden) {
+        phoneText.style.display = 'none';
+        isHidden = true;
+      } else if (!isOverlapping && isHidden) {
+        phoneText.style.display = '';
+        isHidden = false;
       }
     }
   
@@ -45,7 +55,6 @@ function initResponsivePhoneText() {
     window.addEventListener('scroll', checkOverlap);
     checkOverlap();
   }
-  
   
   
   
