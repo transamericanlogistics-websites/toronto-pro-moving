@@ -10,27 +10,29 @@ function initResponsivePhoneText() {
   
     if (!phoneText || !desktopMenu) return;
   
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry && entry.isIntersecting) {
-          phoneText.style.display = 'none';
-        } else {
-          phoneText.style.display = '';
-        }
-      },
-      {
-        root: null,
-        threshold: 0,
+    function checkOverlap() {
+      const phoneRect = phoneText.getBoundingClientRect();
+      const menuRect = desktopMenu.getBoundingClientRect();
+  
+      const isOverlapping = !(
+        phoneRect.right < menuRect.left ||
+        phoneRect.left > menuRect.right ||
+        phoneRect.bottom < menuRect.top ||
+        phoneRect.top > menuRect.bottom
+      );
+  
+      if (isOverlapping) {
+        phoneText.style.display = 'none';
+      } else {
+        phoneText.style.display = '';
       }
-    );
+    }
   
-    // phoneText is observed to see if it intersects with desktopMenu
-    observer.observe(phoneText);
-  
-    // Hack to force proper intersection region
-    phoneText.style.position = 'relative';
-    desktopMenu.style.zIndex = '1';
+    // Run on resize + initial
+    window.addEventListener('resize', () => requestAnimationFrame(checkOverlap));
+    requestAnimationFrame(checkOverlap);
   }
+  
   
   
   
