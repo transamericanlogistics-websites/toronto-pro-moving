@@ -10,42 +10,24 @@ function initResponsivePhoneText() {
   
     if (!phoneText || !desktopMenu) return;
   
-    // Clone phoneText and make it invisible but still interactable for observing
-    const ghost = phoneText.cloneNode(true);
-    ghost.style.visibility = 'hidden';
-    ghost.style.position = 'absolute';
-    ghost.style.pointerEvents = 'none';
-    ghost.style.top = phoneText.offsetTop + 'px';
-    ghost.style.left = phoneText.offsetLeft + 'px';
-    ghost.style.width = phoneText.offsetWidth + 'px';
-    ghost.style.height = phoneText.offsetHeight + 'px';
-    phoneText.parentElement.appendChild(ghost);
-  
     const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-  
-        // Avoid flickering by only reacting when intersection ratio actually changes
-        if (entry.isIntersecting && entry.intersectionRatio > 0) {
-          phoneText.style.display = 'none';
+      ([entry]) => {
+        // Only hide if ACTUALLY intersecting
+        if (entry.isIntersecting) {
+          phoneText.style.visibility = 'hidden';
         } else {
-          phoneText.style.display = '';
+          phoneText.style.visibility = 'visible';
         }
       },
       {
         root: null,
-        threshold: 0.01,
+        threshold: 0,
       }
     );
   
-    observer.observe(ghost);
+    // Observe desktopMenu — when it intersects phoneText, hide
+    observer.observe(desktopMenu);
   }
-  
-  
-  
-  
-  
-  
   
   
   
