@@ -10,59 +10,30 @@ function initResponsivePhoneText() {
     
     if (!phoneText || !desktopMenu) return;
     
-    // Store the natural width of the phone text when it's visible
-    let phoneTextNaturalWidth = 0;
+    // Create a hidden clone to always calculate the correct width
+    const phoneTextClone = phoneText.cloneNode(true);
+    phoneTextClone.style.visibility = 'hidden';
+    phoneTextClone.style.position = 'absolute';
+    phoneTextClone.style.pointerEvents = 'none';
+    phoneText.parentNode.appendChild(phoneTextClone);
     
-    // Measure the natural width only once at initialization
-    function measurePhoneText() {
-      // Ensure it's visible for measurement
-      const originalDisplay = phoneText.style.display;
-      const originalVisibility = phoneText.style.visibility;
-      phoneText.style.display = '';
-      phoneText.style.visibility = 'hidden';
-      
-      // Get the natural width
-      const rect = phoneText.getBoundingClientRect();
-      phoneTextNaturalWidth = rect.width;
-      
-      // Restore original state
-      phoneText.style.display = originalDisplay;
-      phoneText.style.visibility = originalVisibility;
-    }
-    
-    // Call once at initialization
-    measurePhoneText();
-    
-    // This function checks if the phone text would overlap with the menu
     function checkOverlap() {
-      // Get positions
-      const phoneParentRect = phoneText.parentElement.getBoundingClientRect();
+      // Get the clone's width (which is always rendered)
+      const cloneRect = phoneTextClone.getBoundingClientRect();
       const menuRect = desktopMenu.getBoundingClientRect();
       
-      // Calculate where the phone text would end if it was visible
-      // (parent left position + the text's natural width)
-      const phoneRightEdge = phoneParentRect.left + phoneTextNaturalWidth;
-      
-      // Add buffer for stability
-      const buffer = 5;
-      
-      // Check if the phone text would overlap with the menu
+      // Calculate if there would be overlap
       const wouldOverlap = !(
-        phoneRightEdge + buffer < menuRect.left ||
-        phoneParentRect.left > menuRect.right + buffer
+        cloneRect.right < menuRect.left ||
+        cloneRect.left > menuRect.right
       );
       
       // Set display property based on the calculation
       phoneText.style.display = wouldOverlap ? 'none' : '';
     }
     
-    // Run on load and resize
-    window.addEventListener('load', checkOverlap);
-    window.addEventListener('resize', () => {
-      // Use timeout to debounce and improve performance
-      clearTimeout(window.phoneTextResizeTimer);
-      window.phoneTextResizeTimer = setTimeout(checkOverlap, 100);
-    });
+    // Run on resize
+    window.addEventListener('resize', checkOverlap);
     
     // Initial check
     checkOverlap();
