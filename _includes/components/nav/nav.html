@@ -18,8 +18,11 @@
     </ul>
 
     <div class="actions">
-      <a href="tel:{{ site.phone.ie64 | remove: ' ' }}">
+      <a href="tel:{{ site.phone.ie64 | remove: ' ' }}" class="phone-desktop">
         <i class="fas fa-phone"></i><span class="phone-text">{{ site.phone.display }}</span>
+      </a>
+      <a href="tel:{{ site.phone.ie64 | remove: ' ' }}" class="phone-mobile">
+        <i class="fas fa-phone"></i>
       </a>
       <button data-scroll-target="quote" class="btn-accent shake-5s">Get My Quote</button>
     </div>

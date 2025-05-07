@@ -4,61 +4,42 @@ function initMobileMenuToggle() {
     mobile_menu_toggle.addEventListener( 'click', () => { mobile_menu.classList.toggle('open') } );
 }
 
-function initResponsivePhoneText() {
-    const phoneText = document.querySelector('.phone-text');
+function initResponsivePhoneLink() {
+    const phoneDesktop = document.querySelector('.phone-desktop');
+    const phoneMobile = document.querySelector('.phone-mobile');
     const desktopMenu = document.querySelector('.desktop-menu');
-    if (!phoneText || !desktopMenu) return;
-  
-    // Assume icon is the last child, text is all before it
-    const children = Array.from(phoneText.childNodes);
-    const icon = children.find(child => child.nodeType === 1); // icon is an element
-    const textNodes = children.filter(child => child.nodeType === 3 || (child !== icon && child.nodeType === 1));
-  
-    function checkOverlap() {
-      const phoneRect = phoneText.getBoundingClientRect();
-      const menuRect = desktopMenu.getBoundingClientRect();
-  
-      const isOverlapping = !(
-        phoneRect.right <= menuRect.left ||
-        phoneRect.left >= menuRect.right ||
-        phoneRect.bottom <= menuRect.top ||
-        phoneRect.top >= menuRect.bottom
-      );
-  
-      if (isOverlapping) {
-        // Hide all text nodes or elements except the icon
-        textNodes.forEach(node => {
-          if (node.style) node.style.visibility = 'hidden';
-        });
-  
-        // Position icon to the right
-        if (icon) {
-          icon.style.position = 'absolute';
-          icon.style.left = `${phoneRect.right + 5}px`; // adjust spacing as needed
-          icon.style.top = `${phoneRect.top}px`;
+    
+    // Intersection Observer for detecting overlap between desktop menu and phone link
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // When the desktop menu intersects the phone link, toggle visibility
+          phoneDesktop.style.display = 'none';
+          phoneMobile.style.display = 'block';
+        } else {
+          phoneDesktop.style.display = 'block';
+          phoneMobile.style.display = 'none';
         }
-      } else {
-        textNodes.forEach(node => {
-          if (node.style) node.style.visibility = '';
-        });
+      });
+    }, {
+      root: null, // Observe in the viewport
+      threshold: 0.1 // Trigger when 10% of the element is visible
+    });
   
-        if (icon) {
-          icon.style.position = '';
-          icon.style.left = '';
-          icon.style.top = '';
-        }
-      }
+    // Observe the desktop menu
+    if (desktopMenu) {
+      observer.observe(desktopMenu);
     }
   
-    window.addEventListener('resize', checkOverlap);
-    window.addEventListener('scroll', checkOverlap);
-    checkOverlap();
+    // For mobile devices, the phone-mobile link will already be shown and the desktop one hidden
+    if (window.innerWidth <= 960) {
+      phoneDesktop.style.display = 'none';
+      phoneMobile.style.display = 'block';
+    }
   }
-  
-  
   
 
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenuToggle();
-    initResponsivePhoneText();
+    initResponsivePhoneLink();
 });
