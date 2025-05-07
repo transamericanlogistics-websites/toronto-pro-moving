@@ -12,28 +12,30 @@ function initResponsivePhoneText() {
   
     if (!phoneWrapper || !navInner || !desktopMenu || !actions) return;
   
+    let isHidden = false;
+  
     function checkOverlap() {
       requestAnimationFrame(() => {
         const navRight = navInner.getBoundingClientRect().right;
         const menuRight = desktopMenu.getBoundingClientRect().right + actions.offsetWidth;
+        const shouldHide = menuRight > navRight;
   
-        const willOverlap = menuRight > navRight;
-        phoneWrapper.style.display = willOverlap ? 'none' : '';
+        if (shouldHide !== isHidden) {
+          phoneWrapper.style.display = shouldHide ? 'none' : '';
+          isHidden = shouldHide;
+        }
       });
     }
   
-    // Run on load
     window.addEventListener('load', checkOverlap);
+    window.addEventListener('resize', checkOverlap);
   
-    // Observe layout changes
     const ro = new ResizeObserver(checkOverlap);
     ro.observe(navInner);
     ro.observe(desktopMenu);
     ro.observe(actions);
-  
-    // Also run on resize
-    window.addEventListener('resize', checkOverlap);
   }
+  
   
   
 
