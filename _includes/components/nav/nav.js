@@ -16,7 +16,7 @@ function initResponsivePhoneText() {
         if (entry.isIntersecting) {
           phoneText.style.display = 'none';
         } else {
-          phoneText.style.display = '';
+          phoneText.style.display = 'block';
         }
       },
       {
