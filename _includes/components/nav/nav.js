@@ -10,19 +10,18 @@ function initResponsivePhoneText() {
   
     if (!phoneText || !desktopMenu) return;
   
-    let isCurrentlyHidden = false;
+    let isHidden = false;
   
     const observer = new IntersectionObserver(
       ([entry]) => {
         const isIntersecting = entry.isIntersecting;
   
-        // Only update when the visibility needs to change
-        if (isIntersecting && !isCurrentlyHidden) {
+        if (isIntersecting && !isHidden) {
           phoneText.style.display = 'none';
-          isCurrentlyHidden = true;
-        } else if (!isIntersecting && isCurrentlyHidden) {
+          isHidden = true;
+        } else if (!isIntersecting && isHidden) {
           phoneText.style.display = '';
-          isCurrentlyHidden = false;
+          isHidden = false;
         }
       },
       {
@@ -32,8 +31,9 @@ function initResponsivePhoneText() {
       }
     );
   
-    observer.observe(phoneText);
+    observer.observe(desktopMenu);
   }
+  
   
   
   
