@@ -11,17 +11,26 @@ function initResponsivePhoneText() {
   
     let isHidden = false;
   
-    // Create a clone for layout measurement that doesn't affect visibility
+    // Create a clone and insert it right after the real one
     const clone = phoneText.cloneNode(true);
-    clone.style.position = 'absolute';
-    clone.style.visibility = 'hidden';
-    clone.style.pointerEvents = 'none';
-    clone.style.display = '';
-    clone.style.left = '-9999px'; // Push offscreen so it doesn't overlap
-    document.body.appendChild(clone);
+    clone.style.visibility = 'hidden';         // invisible
+    clone.style.pointerEvents = 'none';        // non-interactive
+    clone.style.position = 'absolute';         // take out of flow
+    clone.style.top = '0';
+    clone.style.left = '0';
+    clone.style.width = phoneText.offsetWidth + 'px';  // match dimensions
+    clone.style.height = phoneText.offsetHeight + 'px';
+    document.body.appendChild(clone);          // place in DOM
+  
+    function updateClonePosition() {
+      const realRect = phoneText.getBoundingClientRect();
+      clone.style.top = window.scrollY + realRect.top + 'px';
+      clone.style.left = window.scrollX + realRect.left + 'px';
+    }
   
     function checkOverlap() {
-      // Use the clone's real dimensions as if it were visible
+      updateClonePosition();
+  
       const phoneRect = clone.getBoundingClientRect();
       const menuRect = desktopMenu.getBoundingClientRect();
   
@@ -45,6 +54,7 @@ function initResponsivePhoneText() {
     window.addEventListener('scroll', checkOverlap);
     checkOverlap();
   }
+  
   
   
   
