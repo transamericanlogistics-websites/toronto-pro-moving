@@ -9,20 +9,31 @@ function initResponsivePhoneText() {
     const desktopMenu = document.querySelector('.desktop-menu');
     if (!phoneText || !desktopMenu) return;
   
-    const TOLERANCE = 1; // 1px buffer to absorb subpixel jitter
+    let isHidden = false;
   
     function checkOverlap() {
-      const a = phoneText.getBoundingClientRect();
-      const b = desktopMenu.getBoundingClientRect();
+      // Temporarily ensure it's visible to measure correctly
+      if (isHidden) {
+        phoneText.style.display = '';
+      }
+  
+      const phoneRect = phoneText.getBoundingClientRect();
+      const menuRect = desktopMenu.getBoundingClientRect();
   
       const isOverlapping = !(
-        a.right < b.left + TOLERANCE ||
-        a.left > b.right - TOLERANCE ||
-        a.bottom < b.top + TOLERANCE ||
-        a.top > b.bottom - TOLERANCE
+        phoneRect.right <= menuRect.left ||
+        phoneRect.left >= menuRect.right ||
+        phoneRect.bottom <= menuRect.top ||
+        phoneRect.top >= menuRect.bottom
       );
   
-      phoneText.style.display = isOverlapping ? 'none' : '';
+      if (isOverlapping && !isHidden) {
+        phoneText.style.display = 'none';
+        isHidden = true;
+      } else if (!isOverlapping && isHidden) {
+        phoneText.style.display = '';
+        isHidden = false;
+      }
     }
   
     window.addEventListener('resize', checkOverlap);
