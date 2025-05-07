@@ -7,35 +7,31 @@ function initMobileMenuToggle() {
 function initResponsivePhoneText() {
     const phoneText = document.querySelector('.phone-text');
     const desktopMenu = document.querySelector('.desktop-menu');
-    const actions = document.querySelector('.actions');
   
-    if (!phoneText || !desktopMenu || !actions) return;
+    if (!phoneText || !desktopMenu) return;
   
-    let lastHidden = null;
+    // Set up an observer to watch for intersection between the two
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        const isIntersecting = entry.isIntersecting;
   
-    function checkOverlap() {
-      const menuRect = desktopMenu.getBoundingClientRect();
-      const actionsRect = actions.getBoundingClientRect();
-  
-      // Normalize to integers to avoid subpixel jitter
-      const menuRight = Math.floor(menuRect.right);
-      const actionsLeft = Math.floor(actionsRect.left);
-  
-      const isOverlapping = menuRight + 10 > actionsLeft;
-  
-      if (isOverlapping && !lastHidden) {
-        phoneText.style.display = 'none';
-        lastHidden = true;
-      } else if (!isOverlapping && lastHidden) {
-        phoneText.style.display = '';
-        lastHidden = false;
+        if (isIntersecting) {
+          phoneText.style.display = 'none';
+        } else {
+          phoneText.style.display = '';
+        }
+      },
+      {
+        root: null, // viewport
+        threshold: 0,
+        rootMargin: '-1px', // tiny buffer to ensure clean edge
       }
-    }
+    );
   
-    window.addEventListener('load', checkOverlap);
-    window.addEventListener('resize', checkOverlap);
-    setTimeout(checkOverlap, 100);
+    observer.observe(phoneText);
   }
+  
   
   
   
