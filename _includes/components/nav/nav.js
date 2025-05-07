@@ -19,7 +19,11 @@ function initResponsivePhoneText() {
   
       const menuRight = Math.max(menuBounds.right, actionsBounds.right);
       const navRight = navBounds.right;
-  
+      console.log({
+        navRight: navBounds.right,
+        menuRight,
+        phoneTextVisible: phoneText.style.display !== 'none',
+      });
       // If content is spilling out of nav, hide the phone text
       phoneText.style.display = menuRight > navRight ? 'none' : '';
     }
