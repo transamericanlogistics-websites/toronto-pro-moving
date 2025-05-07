@@ -14,9 +14,9 @@ function initResponsivePhoneText() {
       ([entry]) => {
         // Only hide if ACTUALLY intersecting
         if (entry.isIntersecting) {
-          phoneText.style.visibility = 'hidden';
+          phoneText.style.display = 'none';
         } else {
-          phoneText.style.visibility = 'visible';
+          phoneText.style.display = '';
         }
       },
       {
