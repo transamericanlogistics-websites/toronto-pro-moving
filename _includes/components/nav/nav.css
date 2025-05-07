@@ -26,10 +26,6 @@ nav i:hover {
     color: {{ site.theme.nav.color.icon_hover | default: site.theme.default.color.icon_hover }}
 }
 
-nav .phone-text{
-    display: none;
-}
-
 @media (min-width: 961px){
     nav a,
     nav a:visited,
