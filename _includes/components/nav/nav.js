@@ -6,44 +6,36 @@ function initMobileMenuToggle() {
 
 function initResponsivePhoneText() {
     const phoneText = document.querySelector('.phone-text');
-    const navInner = document.querySelector('.nav-inner');
     const desktopMenu = document.querySelector('.desktop-menu');
     const actions = document.querySelector('.actions');
   
-    if (!phoneText || !navInner || !desktopMenu || !actions) return;
+    if (!phoneText || !desktopMenu || !actions) return;
   
-    let lastState = null;
+    let lastHidden = null;
   
     function checkOverlap() {
-      // Clone actions with phoneText forced visible
-      const clone = actions.cloneNode(true);
-      const clonePhoneText = clone.querySelector('.phone-text');
-      clone.style.visibility = 'hidden';
-      clone.style.position = 'absolute';
-      clone.style.pointerEvents = 'none';
-      clonePhoneText.style.display = 'inline';
+      const menuRect = desktopMenu.getBoundingClientRect();
+      const actionsRect = actions.getBoundingClientRect();
   
-      document.body.appendChild(clone);
-      const navWidth = navInner.offsetWidth;
-      const usedWidth = desktopMenu.offsetWidth + clone.offsetWidth;
-      document.body.removeChild(clone);
+      const isOverlapping = menuRect.right + 10 > actionsRect.left; // add buffer
   
-      const shouldHide = usedWidth > navWidth;
-  
-      if (shouldHide !== lastState) {
-        phoneText.style.display = shouldHide ? 'none' : '';
-        lastState = shouldHide;
+      if (isOverlapping && !lastHidden) {
+        phoneText.style.display = 'none';
+        lastHidden = true;
+      } else if (!isOverlapping && lastHidden) {
+        phoneText.style.display = '';
+        lastHidden = false;
       }
     }
   
+    // Check once and on resize
     window.addEventListener('load', checkOverlap);
     window.addEventListener('resize', checkOverlap);
   
-    const ro = new ResizeObserver(() => requestAnimationFrame(checkOverlap));
-    ro.observe(navInner);
-    ro.observe(desktopMenu);
-    ro.observe(actions);
+    // Optional: check when fonts load or layout shifts
+    setTimeout(checkOverlap, 100); // in case load timing throws off dimensions
   }
+  
   
   
   
