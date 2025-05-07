@@ -1,31 +1,33 @@
 <nav>
 
-  <div class="logo">
-    {% include_relative assets/images/logo.svg %}
+  <div class="nav-inner">
+    <div class="logo">
+      {% include_relative assets/images/logo.svg %}
+    </div>
+
+    <ul class="desktop-menu">
+      {% for link in site.nav.links %}
+        <li>
+          {% if link.scroll_target %}
+            <a data-scroll-target="{{ link.scroll_target }}">{{ link.title }}</a>
+          {% elsif link.url %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <div class="actions">
+      <a href="tel:{{ site.phone.ie64 | remove: ' ' }}">
+        <i class="fas fa-phone"></i><span class="phone-text">{{ site.phone.display }}</span>
+      </a>
+      <button data-scroll-target="quote" class="btn-accent shake-5s">Get My Quote</button>
+    </div>
   </div>
 
   <button class="mobile-menu-toggle" aria-label="Toggle menu">
     <i class="fa-solid fa-bars"></i>
   </button>
-
-  <ul class="desktop-menu">
-    {% for link in site.nav.links %}
-      <li>
-        {% if link.scroll_target %}
-          <a data-scroll-target="{{ link.scroll_target }}">{{ link.title }}</a>
-        {% elsif link.url %}
-          <a href="{{ link.url }}">{{ link.title }}</a>
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
-
-  <div class="actions">
-    <a href="tel:{{ site.phone.ie64 | remove: ' ' }}">
-      <i class="fas fa-phone"></i><span class="phone-text">{{ site.phone.display }}</span>
-    </a>
-    <button data-scroll-target="quote" class="btn-accent shake-5s">Get My Quote</button>
-  </div>
 
   <div class="mobile-menu">
     <ul>
