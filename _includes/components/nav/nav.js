@@ -10,37 +10,30 @@ function initResponsivePhoneText() {
   
     if (!phoneText || !desktopMenu) return;
   
-    let lastOverlapState = null;
-    let resizeTimeout;
+    let isCurrentlyHidden = false;
   
-    function checkOverlap() {
-      const phoneRect = phoneText.getBoundingClientRect();
-      const menuRect = desktopMenu.getBoundingClientRect();
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const isIntersecting = entry.isIntersecting;
   
-      const isOverlapping = !(
-        phoneRect.right < menuRect.left ||
-        phoneRect.left > menuRect.right ||
-        phoneRect.bottom < menuRect.top ||
-        phoneRect.top > menuRect.bottom
-      );
-  
-      if (isOverlapping !== lastOverlapState) {
-        phoneText.style.display = isOverlapping ? 'none' : '';
-        lastOverlapState = isOverlapping;
+        // Only update when the visibility needs to change
+        if (isIntersecting && !isCurrentlyHidden) {
+          phoneText.style.display = 'none';
+          isCurrentlyHidden = true;
+        } else if (!isIntersecting && isCurrentlyHidden) {
+          phoneText.style.display = '';
+          isCurrentlyHidden = false;
+        }
+      },
+      {
+        root: null,
+        threshold: 0,
+        rootMargin: '0px',
       }
-    }
+    );
   
-    // Debounce for performance and stability
-    function onResize() {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(checkOverlap, 100); // adjust delay as needed
-    }
-  
-    window.addEventListener('resize', onResize);
-    window.addEventListener('load', checkOverlap);
-    requestAnimationFrame(checkOverlap);
+    observer.observe(phoneText);
   }
-  
   
   
   
