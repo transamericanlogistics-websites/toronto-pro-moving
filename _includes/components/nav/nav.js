@@ -5,36 +5,40 @@ function initMobileMenuToggle() {
 }
 
 function initResponsivePhoneText() {
+    const phoneText = document.querySelector('.phone-text');
     const phoneWrapper = document.querySelector('.actions a');
     const navInner = document.querySelector('.nav-inner');
     const desktopMenu = document.querySelector('.desktop-menu');
     const actions = document.querySelector('.actions');
   
-    if (!phoneWrapper || !navInner || !desktopMenu || !actions) return;
+    if (!phoneText || !phoneWrapper || !navInner || !desktopMenu || !actions) return;
   
-    let isHidden = false;
+    let lastState = null;
   
     function checkOverlap() {
-      requestAnimationFrame(() => {
-        const navRight = navInner.getBoundingClientRect().right;
-        const menuRight = desktopMenu.getBoundingClientRect().right + actions.offsetWidth;
-        const shouldHide = menuRight > navRight;
+      // Temporarily hide phoneText for measurement
+      const prevDisplay = phoneText.style.display;
+      phoneText.style.display = 'inline'; // force visible for accurate width
+      const navWidth = navInner.offsetWidth;
+      const usedWidth = desktopMenu.offsetWidth + actions.offsetWidth;
+      const shouldHide = usedWidth > navWidth;
+      phoneText.style.display = prevDisplay; // restore to current state
   
-        if (shouldHide !== isHidden) {
-          phoneWrapper.style.display = shouldHide ? 'none' : '';
-          isHidden = shouldHide;
-        }
-      });
+      if (shouldHide !== lastState) {
+        phoneText.style.display = shouldHide ? 'none' : '';
+        lastState = shouldHide;
+      }
     }
   
     window.addEventListener('load', checkOverlap);
     window.addEventListener('resize', checkOverlap);
   
-    const ro = new ResizeObserver(checkOverlap);
+    const ro = new ResizeObserver(() => requestAnimationFrame(checkOverlap));
     ro.observe(navInner);
     ro.observe(desktopMenu);
     ro.observe(actions);
   }
+  
   
   
   
