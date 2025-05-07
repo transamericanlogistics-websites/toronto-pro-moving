@@ -10,32 +10,53 @@ function initResponsivePhoneText() {
     
     if (!phoneText || !desktopMenu) return;
     
-    function checkOverlap() {
-      // Get updated positions each time this runs
-      const phoneRect = phoneText.getBoundingClientRect();
-      const menuRect = desktopMenu.getBoundingClientRect();
+    // Store the natural width of the phone text when it's visible
+    let phoneTextNaturalWidth = 0;
+    
+    // Measure the natural width only once at initialization
+    function measurePhoneText() {
+      // Ensure it's visible for measurement
+      const originalDisplay = phoneText.style.display;
+      const originalVisibility = phoneText.style.visibility;
+      phoneText.style.display = '';
+      phoneText.style.visibility = 'hidden';
       
-      // Add some buffer for safer detection (5px on each side)
-      const buffer = 5;
+      // Get the natural width
+      const rect = phoneText.getBoundingClientRect();
+      phoneTextNaturalWidth = rect.width;
       
-      // Check for horizontal overlap with buffer
-      const isOverlapping = !(
-        phoneRect.right + buffer < menuRect.left ||
-        phoneRect.left > menuRect.right + buffer
-      );
-      
-      // Apply visibility directly rather than display property
-      // This preserves the layout and prevents jumps
-      if (isOverlapping) {
-        phoneText.style.opacity = '0';
-        phoneText.style.display = 'none';
-      } else {
-        phoneText.style.opacity = '1';
-        phoneText.style.display = '';
-      }
+      // Restore original state
+      phoneText.style.display = originalDisplay;
+      phoneText.style.visibility = originalVisibility;
     }
     
-    // Run on load, resize and also periodically to catch any DOM updates
+    // Call once at initialization
+    measurePhoneText();
+    
+    // This function checks if the phone text would overlap with the menu
+    function checkOverlap() {
+      // Get positions
+      const phoneParentRect = phoneText.parentElement.getBoundingClientRect();
+      const menuRect = desktopMenu.getBoundingClientRect();
+      
+      // Calculate where the phone text would end if it was visible
+      // (parent left position + the text's natural width)
+      const phoneRightEdge = phoneParentRect.left + phoneTextNaturalWidth;
+      
+      // Add buffer for stability
+      const buffer = 5;
+      
+      // Check if the phone text would overlap with the menu
+      const wouldOverlap = !(
+        phoneRightEdge + buffer < menuRect.left ||
+        phoneParentRect.left > menuRect.right + buffer
+      );
+      
+      // Set display property based on the calculation
+      phoneText.style.display = wouldOverlap ? 'none' : '';
+    }
+    
+    // Run on load and resize
     window.addEventListener('load', checkOverlap);
     window.addEventListener('resize', () => {
       // Use timeout to debounce and improve performance
@@ -45,9 +66,6 @@ function initResponsivePhoneText() {
     
     // Initial check
     checkOverlap();
-    
-    // Also set up a periodic check to handle any other layout changes
-    setInterval(checkOverlap, 1000);
   }
   
   
