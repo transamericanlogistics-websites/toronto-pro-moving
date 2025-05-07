@@ -7,30 +7,47 @@ function initMobileMenuToggle() {
 function initResponsivePhoneText() {
     const phoneText = document.querySelector('.phone-text');
     const desktopMenu = document.querySelector('.desktop-menu');
-  
+    
     if (!phoneText || !desktopMenu) return;
-  
+    
     function checkOverlap() {
+      // Get updated positions each time this runs
       const phoneRect = phoneText.getBoundingClientRect();
       const menuRect = desktopMenu.getBoundingClientRect();
-  
+      
+      // Add some buffer for safer detection (5px on each side)
+      const buffer = 5;
+      
+      // Check for horizontal overlap with buffer
       const isOverlapping = !(
-        phoneRect.right < menuRect.left ||
-        phoneRect.left > menuRect.right ||
-        phoneRect.bottom < menuRect.top ||
-        phoneRect.top > menuRect.bottom
+        phoneRect.right + buffer < menuRect.left ||
+        phoneRect.left > menuRect.right + buffer
       );
-  
+      
+      // Apply visibility directly rather than display property
+      // This preserves the layout and prevents jumps
       if (isOverlapping) {
-        phoneText.style.display = 'none';
+        phoneText.style.opacity = '0';
+        phoneText.style.visibility = 'hidden';
       } else {
-        phoneText.style.display = '';
+        phoneText.style.opacity = '1';
+        phoneText.style.visibility = 'visible';
       }
     }
-  
-    // Run on resize + initial
-    window.addEventListener('resize', () => requestAnimationFrame(checkOverlap));
-    requestAnimationFrame(checkOverlap);
+    
+    // Run on load, resize and also periodically to catch any DOM updates
+    window.addEventListener('load', checkOverlap);
+    window.addEventListener('resize', () => {
+      // Use timeout to debounce and improve performance
+      clearTimeout(window.phoneTextResizeTimer);
+      window.phoneTextResizeTimer = setTimeout(checkOverlap, 100);
+    });
+    
+    // Initial check
+    checkOverlap();
+    
+    // Also set up a periodic check to handle any other layout changes
+    setInterval(checkOverlap, 1000);
   }
   
   
