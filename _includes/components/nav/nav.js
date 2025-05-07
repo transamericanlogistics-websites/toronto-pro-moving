@@ -17,7 +17,11 @@ function initResponsivePhoneText() {
       const menuRect = desktopMenu.getBoundingClientRect();
       const actionsRect = actions.getBoundingClientRect();
   
-      const isOverlapping = menuRect.right + 10 > actionsRect.left; // add buffer
+      // Normalize to integers to avoid subpixel jitter
+      const menuRight = Math.floor(menuRect.right);
+      const actionsLeft = Math.floor(actionsRect.left);
+  
+      const isOverlapping = menuRight + 10 > actionsLeft;
   
       if (isOverlapping && !lastHidden) {
         phoneText.style.display = 'none';
@@ -28,13 +32,11 @@ function initResponsivePhoneText() {
       }
     }
   
-    // Check once and on resize
     window.addEventListener('load', checkOverlap);
     window.addEventListener('resize', checkOverlap);
-  
-    // Optional: check when fonts load or layout shifts
-    setTimeout(checkOverlap, 100); // in case load timing throws off dimensions
+    setTimeout(checkOverlap, 100);
   }
+  
   
   
   
