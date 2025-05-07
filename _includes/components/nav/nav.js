@@ -10,33 +10,41 @@ function initResponsivePhoneText() {
     
     if (!phoneText || !desktopMenu) return;
     
-    // Create a hidden clone to always calculate the correct width
-    const phoneTextClone = phoneText.cloneNode(true);
-    phoneTextClone.style.visibility = 'hidden';
-    phoneTextClone.style.position = 'absolute';
-    phoneTextClone.style.pointerEvents = 'none';
-    phoneText.parentNode.appendChild(phoneTextClone);
+    // Find specific breakpoint widths that work properly
+    let currentlyHidden = false;
+    let lastWidth = window.innerWidth;
     
-    function checkOverlap() {
-      // Get the clone's width (which is always rendered)
-      const cloneRect = phoneTextClone.getBoundingClientRect();
-      const menuRect = desktopMenu.getBoundingClientRect();
+    function checkWidth() {
+      const width = window.innerWidth;
       
-      // Calculate if there would be overlap
-      const wouldOverlap = !(
-        cloneRect.right < menuRect.left ||
-        cloneRect.left > menuRect.right
-      );
+      // Only process if width changed since last check
+      if (width === lastWidth) return;
       
-      // Set display property based on the calculation
-      phoneText.style.display = wouldOverlap ? 'none' : '';
+      // Stabilize against odd/even flickering by rounding to even number
+      const roundedWidth = Math.floor(width / 2) * 2;
+      
+      // Store for next comparison
+      lastWidth = width;
+      
+      // Get fixed breakpoint - adjust this value to match your site
+      // Find a breakpoint by testing your site manually
+      const breakpoint = 1100; // Example - adjust this value!
+      
+      // Simple rule - show/hide based on rounded width
+      const shouldHide = roundedWidth <= breakpoint;
+      
+      // Only update if state changes
+      if (shouldHide !== currentlyHidden) {
+        phoneText.style.display = shouldHide ? 'none' : '';
+        currentlyHidden = shouldHide;
+      }
     }
     
-    // Run on resize
-    window.addEventListener('resize', checkOverlap);
+    // Check on resize events
+    window.addEventListener('resize', checkWidth);
     
     // Initial check
-    checkOverlap();
+    checkWidth();
   }
   
   
