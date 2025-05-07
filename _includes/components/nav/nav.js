@@ -11,12 +11,18 @@ function initResponsivePhoneText() {
   
     let isHidden = false;
   
+    // Create a clone for layout measurement that doesn't affect visibility
+    const clone = phoneText.cloneNode(true);
+    clone.style.position = 'absolute';
+    clone.style.visibility = 'hidden';
+    clone.style.pointerEvents = 'none';
+    clone.style.display = '';
+    clone.style.left = '-9999px'; // Push offscreen so it doesn't overlap
+    document.body.appendChild(clone);
+  
     function checkOverlap() {
-      // Always measure as if it's visible — do NOT use display: none
-      phoneText.style.visibility = 'hidden';
-      phoneText.style.display = '';
-      
-      const phoneRect = phoneText.getBoundingClientRect();
+      // Use the clone's real dimensions as if it were visible
+      const phoneRect = clone.getBoundingClientRect();
       const menuRect = desktopMenu.getBoundingClientRect();
   
       const isOverlapping = !(
@@ -25,9 +31,6 @@ function initResponsivePhoneText() {
         phoneRect.bottom <= menuRect.top ||
         phoneRect.top >= menuRect.bottom
       );
-  
-      // Restore visibility before deciding whether to hide
-      phoneText.style.visibility = '';
   
       if (isOverlapping && !isHidden) {
         phoneText.style.display = 'none';
@@ -42,7 +45,6 @@ function initResponsivePhoneText() {
     window.addEventListener('scroll', checkOverlap);
     checkOverlap();
   }
-  
   
   
   
