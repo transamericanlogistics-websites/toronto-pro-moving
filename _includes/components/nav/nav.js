@@ -28,10 +28,10 @@ function initResponsivePhoneText() {
       // This preserves the layout and prevents jumps
       if (isOverlapping) {
         phoneText.style.opacity = '0';
-        phoneText.style.visibility = 'hidden';
+        phoneText.style.display = 'none';
       } else {
         phoneText.style.opacity = '1';
-        phoneText.style.visibility = 'visible';
+        phoneText.style.display = '';
       }
     }
     
