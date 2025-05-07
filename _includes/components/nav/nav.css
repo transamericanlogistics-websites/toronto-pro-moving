@@ -27,7 +27,7 @@ nav i:hover {
 }
 
 nav .phone-text{
-    display: none;
+    visibility: hidden;
 }
 
 @media (min-width: 961px){
