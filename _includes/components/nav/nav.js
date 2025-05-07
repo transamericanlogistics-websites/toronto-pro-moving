@@ -41,6 +41,7 @@ function initResponsivePhoneText() {
     }
     
     // Check on resize events
+    window.addEventListener('load', checkWidth);
     window.addEventListener('resize', checkWidth);
     
     // Initial check
