@@ -11,27 +11,18 @@ function initResponsivePhoneText() {
   
     let isHidden = false;
   
-    // Create a clone and insert it right after the real one
-    const clone = phoneText.cloneNode(true);
-    clone.style.visibility = 'hidden';         // invisible
-    clone.style.pointerEvents = 'none';        // non-interactive
-    clone.style.position = 'absolute';         // take out of flow
-    clone.style.top = '0';
-    clone.style.left = '0';
-    clone.style.width = phoneText.offsetWidth + 'px';  // match dimensions
-    clone.style.height = phoneText.offsetHeight + 'px';
-    document.body.appendChild(clone);          // place in DOM
-  
-    function updateClonePosition() {
-      const realRect = phoneText.getBoundingClientRect();
-      clone.style.top = window.scrollY + realRect.top + 'px';
-      clone.style.left = window.scrollX + realRect.left + 'px';
-    }
-  
     function checkOverlap() {
-      updateClonePosition();
+      if (!isHidden) {
+        // Ensure visible so we can measure accurately
+        phoneText.style.display = '';
+      } else {
+        // It's already hidden, don't do anything unless we can re-show safely
+        // Temporarily show it invisibly to measure
+        phoneText.style.visibility = 'hidden';
+        phoneText.style.display = '';
+      }
   
-      const phoneRect = clone.getBoundingClientRect();
+      const phoneRect = phoneText.getBoundingClientRect();
       const menuRect = desktopMenu.getBoundingClientRect();
   
       const isOverlapping = !(
@@ -41,6 +32,10 @@ function initResponsivePhoneText() {
         phoneRect.top >= menuRect.bottom
       );
   
+      // Restore visibility so it's not invisible if it should be shown
+      phoneText.style.visibility = '';
+  
+      // Now update state based on overlap and previous state
       if (isOverlapping && !isHidden) {
         phoneText.style.display = 'none';
         isHidden = true;
@@ -54,8 +49,6 @@ function initResponsivePhoneText() {
     window.addEventListener('scroll', checkOverlap);
     checkOverlap();
   }
-  
-  
   
   
   
