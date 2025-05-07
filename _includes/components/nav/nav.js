@@ -10,24 +10,36 @@ function initResponsivePhoneText() {
     if (!phoneText || !desktopMenu) return;
   
     let isHidden = false;
+    let fixedWidth = null;
   
-    // Create ghost
+    // Create a ghost element for reliable intersection
     const ghost = document.createElement('div');
     ghost.style.position = 'absolute';
     ghost.style.visibility = 'hidden';
     ghost.style.pointerEvents = 'none';
+    ghost.style.opacity = '0';
+    ghost.style.margin = '0';
+    ghost.style.padding = '0';
+    ghost.style.border = 'none';
+    ghost.style.display = 'block';
     document.body.appendChild(ghost);
   
-    function updateGhost() {
+    function updateGhostPosition() {
       const rect = phoneText.getBoundingClientRect();
+  
+      // Capture fixed width only while phoneText is visible
+      if (!isHidden) {
+        fixedWidth = rect.width;
+      }
+  
       ghost.style.top = `${window.scrollY + rect.top}px`;
       ghost.style.left = `${window.scrollX + rect.left}px`;
-      ghost.style.width = `${rect.width}px`;
+      ghost.style.width = `${fixedWidth}px`;
       ghost.style.height = `${rect.height}px`;
     }
   
     function checkOverlap() {
-      updateGhost();
+      updateGhostPosition();
   
       const ghostRect = ghost.getBoundingClientRect();
       const menuRect = desktopMenu.getBoundingClientRect();
@@ -40,10 +52,14 @@ function initResponsivePhoneText() {
       );
   
       if (isOverlapping && !isHidden) {
-        phoneText.style.display = 'none';
+        phoneText.style.opacity = '0';
+        phoneText.style.pointerEvents = 'none';
+        phoneText.style.visibility = 'hidden';
         isHidden = true;
       } else if (!isOverlapping && isHidden) {
-        phoneText.style.display = '';
+        phoneText.style.opacity = '';
+        phoneText.style.pointerEvents = '';
+        phoneText.style.visibility = '';
         isHidden = false;
       }
     }
@@ -52,7 +68,6 @@ function initResponsivePhoneText() {
     window.addEventListener('scroll', checkOverlap);
     checkOverlap();
   }
-  
   
   
 
