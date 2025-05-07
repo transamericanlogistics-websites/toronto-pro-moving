@@ -11,17 +11,14 @@ function initResponsivePhoneText() {
   
     let isHidden = false;
   
-    // Create ghost element
-    const ghost = phoneText.cloneNode(true);
+    // Create ghost
+    const ghost = document.createElement('div');
     ghost.style.position = 'absolute';
     ghost.style.visibility = 'hidden';
     ghost.style.pointerEvents = 'none';
-    ghost.style.margin = '0';
-    ghost.style.padding = '0';
-    ghost.style.border = 'none';
     document.body.appendChild(ghost);
   
-    function updateGhostPosition() {
+    function updateGhost() {
       const rect = phoneText.getBoundingClientRect();
       ghost.style.top = `${window.scrollY + rect.top}px`;
       ghost.style.left = `${window.scrollX + rect.left}px`;
@@ -30,7 +27,7 @@ function initResponsivePhoneText() {
     }
   
     function checkOverlap() {
-      updateGhostPosition();
+      updateGhost();
   
       const ghostRect = ghost.getBoundingClientRect();
       const menuRect = desktopMenu.getBoundingClientRect();
