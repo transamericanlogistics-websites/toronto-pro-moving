@@ -9,16 +9,32 @@ function initResponsivePhoneText() {
     const navInner = document.querySelector('.nav-inner');
     const desktopMenu = document.querySelector('.desktop-menu');
     const actions = document.querySelector('.actions');
+  
+    if (!phoneText || !navInner || !desktopMenu || !actions) return;
+  
     function checkOverlap() {
-      if (!phoneText || !navInner || !desktopMenu || !actions) return;
-      const navWidth = navInner.offsetWidth;
-      const usedWidth = desktopMenu.offsetWidth + actions.offsetWidth;
-      phoneText.style.display = usedWidth > navWidth ? 'none' : '';
+      // Force reflow before measuring
+      requestAnimationFrame(() => {
+        const navWidth = navInner.offsetWidth;
+        const usedWidth = desktopMenu.offsetWidth + actions.offsetWidth;
+  
+        phoneText.style.display = usedWidth > navWidth ? 'none' : '';
+      });
     }
-    const resizeObserver = new ResizeObserver(checkOverlap);
-    [navInner, desktopMenu, actions].forEach(el => resizeObserver.observe(el));
+  
+    // Call once at load
     window.addEventListener('load', checkOverlap);
-}  
+  
+    // Resize observer handles dynamic layout shifts
+    const ro = new ResizeObserver(checkOverlap);
+    ro.observe(navInner);
+    ro.observe(desktopMenu);
+    ro.observe(actions);
+  
+    // Also check on window resize for full coverage
+    window.addEventListener('resize', checkOverlap);
+  }
+  
 
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenuToggle();
