@@ -5,38 +5,36 @@ function initMobileMenuToggle() {
 }
 
 function initResponsivePhoneText() {
-    const phoneText = document.querySelector('.phone-text');
+    const phoneWrapper = document.querySelector('.actions a');
     const navInner = document.querySelector('.nav-inner');
     const desktopMenu = document.querySelector('.desktop-menu');
     const actions = document.querySelector('.actions');
   
-    if (!phoneText || !navInner || !desktopMenu || !actions) return;
+    if (!phoneWrapper || !navInner || !desktopMenu || !actions) return;
   
     function checkOverlap() {
-      const navBounds = navInner.getBoundingClientRect();
-      const menuBounds = desktopMenu.getBoundingClientRect();
-      const actionsBounds = actions.getBoundingClientRect();
+      requestAnimationFrame(() => {
+        const navRight = navInner.getBoundingClientRect().right;
+        const menuRight = desktopMenu.getBoundingClientRect().right + actions.offsetWidth;
   
-      const menuRight = Math.max(menuBounds.right, actionsBounds.right);
-      const navRight = navBounds.right;
-      console.log({
-        navRight: navBounds.right,
-        menuRight,
-        phoneTextVisible: phoneText.style.display !== 'none',
+        const willOverlap = menuRight > navRight;
+        phoneWrapper.style.display = willOverlap ? 'none' : '';
       });
-      // If content is spilling out of nav, hide the phone text
-      phoneText.style.display = menuRight > navRight ? 'none' : '';
     }
   
-    // Call it on load and resize
+    // Run on load
     window.addEventListener('load', checkOverlap);
-    window.addEventListener('resize', checkOverlap);
   
+    // Observe layout changes
     const ro = new ResizeObserver(checkOverlap);
     ro.observe(navInner);
     ro.observe(desktopMenu);
     ro.observe(actions);
+  
+    // Also run on resize
+    window.addEventListener('resize', checkOverlap);
   }
+  
   
 
 document.addEventListener('DOMContentLoaded', () => {
