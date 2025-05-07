@@ -12,15 +12,9 @@ function initResponsivePhoneText() {
     let isHidden = false;
   
     function checkOverlap() {
-      if (!isHidden) {
-        // Ensure visible so we can measure accurately
-        phoneText.style.display = '';
-      } else {
-        // It's already hidden, don't do anything unless we can re-show safely
-        // Temporarily show it invisibly to measure
-        phoneText.style.visibility = 'hidden';
-        phoneText.style.display = '';
-      }
+      // Always keep the element visible in layout so we can detect overlaps
+      phoneText.style.visibility = 'hidden';
+      phoneText.style.pointerEvents = 'none'; // optional, for UX
   
       const phoneRect = phoneText.getBoundingClientRect();
       const menuRect = desktopMenu.getBoundingClientRect();
@@ -32,16 +26,18 @@ function initResponsivePhoneText() {
         phoneRect.top >= menuRect.bottom
       );
   
-      // Restore visibility so it's not invisible if it should be shown
-      phoneText.style.visibility = '';
-  
-      // Now update state based on overlap and previous state
-      if (isOverlapping && !isHidden) {
-        phoneText.style.display = 'none';
-        isHidden = true;
-      } else if (!isOverlapping && isHidden) {
-        phoneText.style.display = '';
-        isHidden = false;
+      if (isOverlapping) {
+        if (!isHidden) {
+          phoneText.style.visibility = 'hidden';
+          phoneText.style.pointerEvents = 'none';
+          isHidden = true;
+        }
+      } else {
+        if (isHidden) {
+          phoneText.style.visibility = 'visible';
+          phoneText.style.pointerEvents = '';
+          isHidden = false;
+        }
       }
     }
   
@@ -49,6 +45,7 @@ function initResponsivePhoneText() {
     window.addEventListener('scroll', checkOverlap);
     checkOverlap();
   }
+  
   
   
   
