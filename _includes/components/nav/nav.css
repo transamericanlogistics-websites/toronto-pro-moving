@@ -73,12 +73,6 @@ nav i:hover {
 
 }
 
-@media (max-width: 1080px) {
-    .phone-text {
-        display: none;
-    }
-}
-
 @media (max-width: 960px) {
     nav .desktop-menu {
         display: none;
