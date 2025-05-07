@@ -9,23 +9,27 @@ function initResponsivePhoneText() {
     const desktopMenu = document.querySelector('.desktop-menu');
     if (!phoneText || !desktopMenu) return;
   
+    function toEven(n) {
+      return 2 * Math.round(n / 2);
+    }
+  
     function checkOverlap() {
       const phoneRect = phoneText.getBoundingClientRect();
       const menuRect = desktopMenu.getBoundingClientRect();
   
-      // Normalize rects to integer pixels to avoid subpixel overlap bugs
+      // Round to nearest even number to avoid flickering at odd widths
       const phone = {
-        top: Math.floor(phoneRect.top),
-        bottom: Math.floor(phoneRect.bottom),
-        left: Math.floor(phoneRect.left),
-        right: Math.floor(phoneRect.right),
+        top: toEven(phoneRect.top),
+        bottom: toEven(phoneRect.bottom),
+        left: toEven(phoneRect.left),
+        right: toEven(phoneRect.right),
       };
   
       const menu = {
-        top: Math.floor(menuRect.top),
-        bottom: Math.floor(menuRect.bottom),
-        left: Math.floor(menuRect.left),
-        right: Math.floor(menuRect.right),
+        top: toEven(menuRect.top),
+        bottom: toEven(menuRect.bottom),
+        left: toEven(menuRect.left),
+        right: toEven(menuRect.right),
       };
   
       const isOverlapping = !(
@@ -42,6 +46,7 @@ function initResponsivePhoneText() {
     window.addEventListener('scroll', checkOverlap);
     checkOverlap();
   }
+  
   
   
   
