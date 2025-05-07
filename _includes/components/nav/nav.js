@@ -12,11 +12,10 @@ function initResponsivePhoneText() {
     let isHidden = false;
   
     function checkOverlap() {
-      // Temporarily ensure it's visible to measure correctly
-      if (isHidden) {
-        phoneText.style.display = '';
-      }
-  
+      // Always measure as if it's visible — do NOT use display: none
+      phoneText.style.visibility = 'hidden';
+      phoneText.style.display = '';
+      
       const phoneRect = phoneText.getBoundingClientRect();
       const menuRect = desktopMenu.getBoundingClientRect();
   
@@ -26,6 +25,9 @@ function initResponsivePhoneText() {
         phoneRect.bottom <= menuRect.top ||
         phoneRect.top >= menuRect.bottom
       );
+  
+      // Restore visibility before deciding whether to hide
+      phoneText.style.visibility = '';
   
       if (isOverlapping && !isHidden) {
         phoneText.style.display = 'none';
